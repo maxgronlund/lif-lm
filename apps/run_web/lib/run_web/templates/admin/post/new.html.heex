@@ -1,0 +1,9 @@
+<h1 class="mt-32 page-header page-title"><%= gettext("New post") %></h1>
+
+<div class="w-full px-4">
+  <div class="relative mx-auto max-w-[800px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]">
+
+    <%= render "form.html", Map.put(assigns, :action, Routes.admin_blogs_post_path(@conn, :create, @blog)) %>
+  </div>
+</div>
+

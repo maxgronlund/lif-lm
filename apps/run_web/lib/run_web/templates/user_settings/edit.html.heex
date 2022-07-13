@@ -1,0 +1,88 @@
+<h1 class="mt-32 page-header page-title"><%= gettext("Settings") %> </h1>
+
+<div class="w-full px-4">
+  <div class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]">
+    <.form let={f} for={@email_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_email">
+      <%= if @email_changeset.action do %>
+        <div class="flash flash-red">
+          <p><%= gettext("Oops, something went wrong! Please check the errors below.") %></p>
+        </div>
+      <% end %>
+
+      <%= hidden_input f, :action, name: "action", value: "update_email" %>
+
+      <%= label f, :username, gettext("Username"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <div class="mb-6">
+        <%= text_input f, :username, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+        <div class="text-red-500">
+          <%= error_tag f, :username%>
+        </div>
+      </div>
+
+      <%= label f, :email, gettext("Email"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <div class="mb-6">
+        <%= email_input f, :email, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+        <div class="text-red-500">
+          <%= error_tag f, :email %>
+        </div>
+      </div>
+
+      <%= label f, :current_password, gettext("Current password"), for: "current_password_for_email", class: "block text-gray-700 text-m font-bold mb-2" %>
+      <div class="mb-6">
+        <%= password_input f, :current_password, required: true, name: "current_password", id: "current_password_for_email", class: "form-input px-4 py-3 rounded-md w-full" %>
+        <div class="text-red-500">
+          <%= error_tag f, :current_password %>
+        </div>
+      </div>
+      <div>
+        <%= submit gettext("Change email"), class: "btn btn-l w-full"  %>
+      </div>
+    </.form>
+  </div>
+</div>
+
+
+
+<h1 class="mt-8 page-header page-title"><%= gettext("Change password") %> </h1>
+
+<div class="w-full px-4">
+   <div class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]" data-wow-delay=".15s" style="visibility: visible; animation-delay: 0.15s;">
+    <.form let={f} for={@password_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_password">
+      <%= if @password_changeset.action do %>
+        <div class="flash flash-red">
+          <p><%= gettext("Oops, something went wrong! Please check the errors below.") %></p>
+        </div>
+      <% end %>
+
+      <%= hidden_input f, :action, name: "action", value: "update_password" %>
+
+      <%= label f, :password, gettext("New password"), class: "block text-gray-700 text-m font-bold mb-2"  %>
+      <div class="mb-6">
+        <%= password_input f, :password, required: true, class: "form-input px-4 py-3 rounded-md w-full"  %>
+        <div class="text-red-500">
+          <%= error_tag f, :password %>
+        </div>
+      </div>
+
+      <%= label f, :password_confirmation, gettext("Confirm new password"), class: "block text-gray-700 text-m font-bold mb-2"  %>
+      <div class="mb-6">
+        <%= password_input f, :password_confirmation, required: true, class: "form-input px-4 py-3 rounded-md w-full"  %>
+        <div class="text-red-500">
+          <%= error_tag f, :password_confirmation %>
+        </div>
+      </div>
+
+      <%= label f, :current_password, gettext("Current password"), for: "current_password_for_password", class: "block text-gray-700 text-m font-bold mb-2"  %>
+      <div class="mb-6">
+        <%= password_input f, :current_password, required: true, name: "current_password", id: "current_password_for_password", class: "form-input px-4 py-3 rounded-md w-full"  %>
+        <div class="text-red-500">
+          <%= error_tag f, :current_password %>
+        </div>
+      </div>
+
+      <div>
+        <%= submit gettext("Change password"), class: "btn btn-l w-full"   %>
+      </div>
+    </.form>
+  </div>
+</div>

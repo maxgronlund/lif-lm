@@ -1,0 +1,13 @@
+# Run
+
+## Section
+
+```elixir
+alias Run.Admin
+
+blog_id = Admin.get_blog_with_posts_by_page!("landidsdng_pasdfge").id
+```
+
+```elixir
+Admin.get_posts_by_page(blog_id, "some tittle")
+```

@@ -1,0 +1,18 @@
+mix phx.gen.auth Accounts User users
+
+mix phx.gen.live Admin Association associations name:string description:text
+mix phx.gen.live Admin Club clubs name:string association_id:references:association
+
+mix phx.gen.live Editor Blog blogs identifier:string title:string description:text club_id:references:club
+mix phx.gen.live Editor BlogPost blog_posts blog_id:references:blog
+
+
+mix phx.gen.live WebMaster Page pages slug:string title:string club_id:references:clubs
+
+mix phx.gen.auth SuperAdmin System systems default_club_id:references:clubs super_admin:references:users  
+
+
+
+After cleanup
+mix phx.gen.html Admin Blog blogs identifier:string title:string description:text 
+mix phx.gen.html Admin Post posts title:string body:text author:string blog_id:references:blogs

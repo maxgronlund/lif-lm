@@ -1,0 +1,24 @@
+<div class="mt-32 page-header page-title"><%= gettext("Forgot your password?") %></div>
+  <div class="w-full px-4">
+    <div class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]" data-wow-delay=".15s" style="visibility: visible; animation-delay: 0.15s;">
+    <.form let={f} for={:user} action={Routes.user_reset_password_path(@conn, :create)}>
+      <%= label f, :email, class: "block text-gray-700 text-m font-bold mb-2" %>
+      <div class="mb-6">
+        <%= email_input f, :email, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+        <div class="text-red-500">
+          <%= error_tag f, :email %>
+        </div>
+      </div>
+
+      <div class="mb-10">
+        <%= submit gettext("Send instructions to reset password"), class: "btn btn-blue w-full" %>
+      </div>
+
+    </.form>
+
+    <p>
+      <%= link "Register", to: Routes.user_registration_path(@conn, :new) %> |
+      <%= link "Log in", to: Routes.user_session_path(@conn, :new) %>
+    </p>
+  </div>
+</div>

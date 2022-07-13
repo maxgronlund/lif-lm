@@ -1,0 +1,16 @@
+<div>
+  <nav class="flex items-center justify-between flex-wrap bg-gray-100 p-2 fixed w-full z-20 top-12 lg:top-14">
+    <div class="md:container md:mx-auto">
+      <ol class="list-reset flex">
+        <li>
+          <%= live_patch @breadcrumbs.root.title, to: @breadcrumbs.root.path, class:  "text-blue-600 hover:text-blue-700"%>
+          <%= for breadcrumb <- @breadcrumbs.links do %>
+            <li><span class="text-gray-500 mx-2">/</span></li>
+            <%= live_patch breadcrumb.title, to: breadcrumb.link, class: "text-blue-600 hover:text-blue-700" %>
+          <% end %>
+          <li><span class="text-gray-500 mx-2">/ <%= @breadcrumbs.current_page %></span></li>
+        </li>
+      </ol>
+    </div>
+  </nav>
+</div>

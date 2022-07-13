@@ -1,0 +1,21 @@
+<div class="md:container md:mx-auto mt-8">
+  <div class="mt-32 page-header page-title"><%= @blog.title %></div>
+  <%= @blog.page%>
+  <br/>
+  <%= @blog.description %>
+  <br/>
+  <%= link gettext("Edit Blog"), to: Routes.admin_blogs_path(@conn, :edit, @blog), class: "btn btn-blue" %>
+  <%= link gettext("Delete"), to: Routes.admin_blogs_path(@conn, :delete,@blog), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
+  <br/>
+  <%= img_tag Run.Uploader.Image.url({@blog.image, @blog}, :post_card)%>
+
+
+  <div class="mt-10 mb-10 page-header page-title"><%= gettext("posts")%></div>
+  <%= link gettext("New post"), to: Routes.admin_blogs_post_path(@conn, :new, @blog), class: "btn btn-blue" %>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <%= for post <- @blog.posts do %>
+        <%= render "_post_card.html", %{conn: @conn, blog: @blog, post: post}%>
+    <% end %> 
+  </div>
+
+</div>

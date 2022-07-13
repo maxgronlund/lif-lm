@@ -1,0 +1,225 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: da\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_registration/new.html.heex:40
+#: lib/run_web/templates/user_session/new.html.heex:34
+msgid "Forgot your password?"
+msgstr "Glemt adgangskode?"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/layout/_navbar.html.heex:29
+#: lib/run_web/templates/user_registration/new.html.heex:39
+#: lib/run_web/templates/user_session/new.html.heex:1
+#: lib/run_web/templates/user_session/new.html.heex:27
+msgid "Log in"
+msgstr "Log på"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_registration/new.html.heex:8
+#: lib/run_web/templates/user_settings/edit.html.heex:9
+#: lib/run_web/templates/user_settings/edit.html.heex:44
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr "Ups! Noget gik galt! Tjek venligst fejlene nedenfor."
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/layout/_navbar.html.heex:30
+#: lib/run_web/templates/user_registration/new.html.heex:1
+#: lib/run_web/templates/user_registration/new.html.heex:35
+#: lib/run_web/templates/user_session/new.html.heex:33
+msgid "Register"
+msgstr "Opret konto"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_settings/edit.html.heex:37
+#: lib/run_web/templates/user_settings/edit.html.heex:75
+msgid "Change password"
+msgstr "Skift adgangskode"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_session/new.html.heex:22
+msgid "Keep me logged in for 60 days"
+msgstr "Hold mig logget ind i 60 dage"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/layout/_navbar.html.heex:20
+#: lib/run_web/templates/user_settings/edit.html.heex:1
+msgid "Settings"
+msgstr "Indstillinger"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_settings/edit.html.heex:31
+msgid "Change email"
+msgstr "Skift email"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/layout/_navbar.html.heex:23
+msgid "Log out"
+msgstr "Log ud"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_settings/edit.html.heex:58
+msgid "Confirm new password"
+msgstr "Bekræft ny adgangskode"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_settings/edit.html.heex:23
+#: lib/run_web/templates/user_settings/edit.html.heex:66
+msgid "Current password"
+msgstr "Nuværende adgangskode"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_session/new.html.heex:12
+#: lib/run_web/templates/user_settings/edit.html.heex:15
+msgid "Email"
+msgstr "Email"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/club_admin_live/club_live/form_component.html.heex:14
+#: lib/run_web/live/club_live/index.html.heex:25
+#: lib/run_web/live/super_admin_live/club_live/form_component.html.heex:14
+#: lib/run_web/live/super_admin_live/club_live/index.html.heex:25
+msgid "Name"
+msgstr "Navn"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_settings/edit.html.heex:50
+msgid "New password"
+msgstr "Ny adgangskode"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user_session/new.html.heex:17
+msgid "Password"
+msgstr "Adgangskode"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/layout/_navbar.html.heex:26
+msgid "Admin"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/user_session_controller.ex:24
+msgid "Logged out successfully."
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/super_admin_live/index.html.heex:5
+msgid "Manage clubs"
+msgstr "Administrer klubber"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/super_admin_live/club_live/index.ex:54
+#: lib/run_web/live/super_admin_live/club_live/show.ex:28
+#: lib/run_web/live/super_admin_live/index.html.heex:2
+msgid "Super admin"
+msgstr "Super"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/user_settings_controller.ex:28
+msgid "A link to confirm your email change has been sent to the new address."
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/club_admin_live/club_live/form_component.html.heex:22
+#: lib/run_web/live/super_admin_live/club_live/form_component.html.heex:26
+msgid "Description"
+msgstr "Beskrivelse"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/user_settings_controller.ex:62
+msgid "Email change link is invalid or it has expired."
+msgstr "E-mail-ændringslinket er ugyldigt, eller det er udløbet"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/user_settings_controller.ex:57
+msgid "Email changed successfully."
+msgstr "E-mail blev ændret"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/super_admin_live/club_live/index.ex:30
+#: lib/run_web/live/super_admin_live/club_live/index.html.heex:20
+msgid "New Club"
+msgstr "Ny Klub"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/user_settings_controller.ex:44
+msgid "Password updated successfully."
+msgstr "Adgangskoden blev opdateret"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/club_admin_live/club_live/show.html.heex:1
+msgid "%{name} (Club admin)"
+msgstr "%{name} (Admin)"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/club_admin_live/club_live/show.html.heex:19
+msgid "Blogs"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/super_admin_live/club_live/show.html.heex:25
+msgid "Club admin"
+msgstr "Admin"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/super_admin_live/club_live/form_component.ex:42
+msgid "Club updated successfully"
+msgstr "Klubben blev updateret"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/super_admin_live/club_live/index.html.heex:1
+#: lib/run_web/live/super_admin_live/club_live/show.ex:30
+msgid "Clubs"
+msgstr "Klubber"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/club_admin_live/club_live/show.html.heex:17
+msgid "Edit"
+msgstr "Rediger"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/club_admin_live/club_live/show.html.heex:18
+#: lib/run_web/live/super_admin_live/club_live/show.ex:23
+msgid "Show club"
+msgstr "Vis klub"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/live/super_admin_live/club_live/index.ex:24
+msgid "Edit Club"
+msgstr "Rediger klub"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/live/super_admin_live/club_live/show.ex:24
+#: lib/run_web/live/super_admin_live/club_live/show.html.heex:24
+msgid "Edit club"
+msgstr "Rediger klub"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/live/super_admin_live/club_live/index.html.heex:40
+msgid "Delete club"
+msgstr "Slet klub"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/live/super_admin_live/club_live/index.html.heex:39
+msgid "Manage club"
+msgstr "Administrer klub"
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/live/super_admin_live/club_live/show.ex:32
+msgid "club"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/live/super_admin_live/club_live/index.ex:56
+msgid "clubs"
+msgstr ""

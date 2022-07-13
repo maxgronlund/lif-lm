@@ -1,0 +1,33 @@
+
+<div class="w-full px-4 mt-10">
+  <div class="relative mx-auto max-w-[800px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]">
+    <.form let={f} for={@changeset} action={@action} multipart={true}>
+
+      <%= if @changeset.action do %>
+        <div class="flash flash-red">
+          <p><%= gettext("Oops, something went wrong! Please check the errors below.") %></p>
+        </div>
+      <% end %>
+
+      <%= label f, :image, class: "block text-gray-700 text-m font-bold mb-2" %>
+      <%= file_input f, :image, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <div class="text-red-500">
+        <%= error_tag f, :image%>
+      </div>
+
+      <%= label f, :title, gettext("Title"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <%= text_input f, :title, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <div class="text-red-500">
+        <%= error_tag f, :title%>
+      </div>
+
+      <%= label f, :description, gettext("Description"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <%= textarea f, :description, class: "form-input px-4 py-3 rounded-md w-full h-48"  %>
+      <%= error_tag f, :description %>
+
+      <div>
+        <%= submit gettext("Save"), class: "btn" %>
+      </div>
+    </.form>
+  </div>
+</div>

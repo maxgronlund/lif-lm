@@ -1,0 +1,53 @@
+<div class="w-full px-4">
+  <div class="relative mx-auto max-w-[800px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]">
+    <.form let={f} for={@changeset} action={@action} multipart={true}>
+
+      <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
+      
+      <%= label f, :identifier, gettext("*Identifier"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <div class="mb-6">
+        <%= text_input f, :identifier, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+        <div class="text-red-500">
+          <%= error_tag f, :identifier %>
+        </div>
+      </div>
+
+      <%= label f, :image, class: "block text-gray-700 text-m font-bold mb-2" %>
+      <%= file_input f, :image, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <div class="text-red-500">
+        <%= error_tag f, :image%>
+      </div>
+
+      <%= label f, :title, gettext("Title"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <div class="mb-6">
+        <%= text_input f, :title, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+        <div class="text-red-500">
+          <%= error_tag f, :title %>
+        </div>
+      </div>
+
+      <%= label f, :body, gettext("Body"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <div class="mb-6">
+        <%= textarea f, :body, required: true, class: "form-input px-4 py-3 rounded-md w-full h-32" %>
+        <div class="text-red-500">
+          <%= error_tag f, :body %>
+        </div>
+      </div>
+
+      <%= hidden_input f, :author, value: @current_user.username %>
+      <%= hidden_input f, :blog_id, value: @blog.id%>
+
+      <%#= label f, :author %>
+      <%#= text_input f, :author %>
+      <%#= error_tag f, :author %>
+
+      <div>
+        <%= submit "Save", class: "btn btn-blue" %>
+      </div>
+  </.form>
+  </div>
+</div>

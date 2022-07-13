@@ -1,0 +1,4 @@
+<h1 class="mt-32 page-header page-title"><%= gettext("Edit Blog") %> </h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.admin_blogs_path(@conn, :update, @blog)) %>
+

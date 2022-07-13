@@ -1,0 +1,39 @@
+<div class="mt-32 page-header page-title"><%= gettext("Reset password") %></div>
+
+  <div class="w-full px-4">
+    <div class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]" data-wow-delay=".15s" style="visibility: visible; animation-delay: 0.15s;">
+
+      <.form let={f} for={@changeset} action={Routes.user_reset_password_path(@conn, :update, @token)}>
+        <%= if @changeset.action do %>
+          <div class="alert alert-danger">
+            <p>Oops, something went wrong! Please check the errors below.</p>
+          </div>
+        <% end %>
+
+        <%= label f, :password, class: "block text-gray-700 text-m font-bold mb-2" %>
+        <div class="mb-6">
+          <%= password_input f, :password, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+          <div class="text-red-500">
+            <%= error_tag f, :passwword%>
+          </div>
+        </div>
+
+        <%= label f, :password_confirmation, class: "block text-gray-700 text-m font-bold mb-2" %>
+        <div class="mb-6">
+          <%= password_input f, :password_confirmation, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+          <div class="text-red-500">
+            <%= error_tag f, :passwword_confirmation%>
+          </div>
+        </div>
+
+        <div>
+          <%= submit "Reset password", class: "btn btn-blue w-full" %>
+        </div>
+      </.form>
+
+      <p>
+        <%= link "Register", to: Routes.user_registration_path(@conn, :new) %> |
+        <%= link "Log in", to: Routes.user_session_path(@conn, :new) %>
+    </p>
+  </div>
+</div>
