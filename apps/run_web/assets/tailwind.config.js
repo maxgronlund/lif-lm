@@ -3,6 +3,7 @@
 module.exports = {
   content: [
     './js/**/*.js',
+    './vendor/flowbite.js',
     '../lib/*_web.ex',
     '../lib/*_web/**/*.*ex',
   ],
