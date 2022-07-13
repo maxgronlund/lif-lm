@@ -10,7 +10,7 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :run_web, RunWeb.Endpoint,
-  url: [scheme: "https", host: "pure-forest-93343.herokuapp.com", port: System.get_env("PORT")],
+  url: [scheme: "https", host: "limitless-cove-09957", port: System.get_env("PORT")],
   force_ssl: [rewrite_on: [:x_forwarded_proto]]
 
 cache_static_manifest: "priv/static/cache_manifest.json"
