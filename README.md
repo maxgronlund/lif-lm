@@ -25,6 +25,6 @@ https://flowbite.com/docs/getting-started/quickstart/
 
 ## Hekoku
 [heroku](https://pure-forest-93343.herokuapp.com/)
-
-- Aplication name: pure-forest-93343
+- heroku run "POOL_SIZE=2 mix ecto.create" --app lif-lm
+- Aplication name: lif-lm
 - heroku run "POOL_SIZE=2 mix hello.task"
