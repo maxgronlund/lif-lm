@@ -7,7 +7,15 @@ defmodule Run.Umbrella.MixProject do
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      releases: [
+        run: [
+          applications: [
+            run: :permanent,
+            run_web: :permanent
+          ]
+        ]
+      ]
     ]
   end
 
