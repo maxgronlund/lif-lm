@@ -50,6 +50,11 @@ defmodule Run.Accounts.User do
 
   def permission_changeset(user, attrs, _opts \\ []) do
     user
+    |> cast(attrs, [:admin])
+  end
+
+  def super_permission_changeset(user, attrs, _opts \\ []) do
+    user
     |> cast(attrs, [:admin, :super])
   end
 

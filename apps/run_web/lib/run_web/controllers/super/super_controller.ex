@@ -6,8 +6,6 @@ defmodule RunWeb.Super.DashboardController do
   plug :basic_auth, Application.compile_env(:run, :basic_auth)
 
   def index(conn, _params) do
-    users = Super.list_users()
-
     render(
       conn
       |> assign(:breadcrumbs, breadcrumbs(conn)),

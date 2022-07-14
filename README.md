@@ -28,6 +28,6 @@ https://limitless-cove-09957.herokuapp.com/ | https://git.heroku.com/limitless-c
 
 - heroku run "POOL_SIZE=2 mix ecto.create" --app lif-lm
 - heroku run "POOL_SIZE=2 mix ecto.migrate" --app limitless-cove-09957
-- heroku run "POOL_SIZE=2 mix run apps/run/priv/repo/seede.exs" --app limitless-cove-09957
+- heroku run "POOL_SIZE=2 mix run apps/run/priv/repo/seeds.exs" --app limitless-cove-09957
 - Aplication name: limitless-cove-09957
 - heroku run "POOL_SIZE=2 mix hello.task"

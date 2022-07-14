@@ -58,6 +58,11 @@ config :tailwind,
     cd: Path.expand("../apps/run_web/assets", __DIR__)
   ]
 
+# Configures BasicAuth
+config :run, :basic_auth,
+  username: System.get_env("AUTH_USERNAME"),
+  password: System.get_env("AUTH_PASSWORD")
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
