@@ -87,6 +87,11 @@ config :ex_aws,
     region: System.get_env("AOFF_AWS_REGION")
   ]
 
+config :run_web, Run.Mailer,
+  adapter: Bamboo.SendGridAdapter,
+  api_key: System.get_env("LIF_SEND_GRID_API_KEY"),
+  email_from: System.get_env("LIF_EMAIL_FROM")
+
 # Set default locale to da
 config :gettext, :default_locale, "da"
 
