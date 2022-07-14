@@ -40,6 +40,7 @@ defmodule Run.MixProject do
       {:phoenix_pubsub, "~> 2.0"},
       {:ecto_sql, "~> 3.6"},
       {:gettext, "~> 0.18"},
+      {:hackney, "~> 1.18"},
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.2"},
       {:swoosh, "~> 1.3"},
@@ -50,8 +51,7 @@ defmodule Run.MixProject do
       {:poison, "~> 3.1"},
       {:hackney, "~> 1.16"},
       {:sweet_xml, "~> 0.7.3"},
-      {:slugify, "~> 1.3"},
-      {:gen_smtp, "~> 1.1.1"}
+      {:slugify, "~> 1.3"}
     ]
   end
 
