@@ -1,16 +1,14 @@
 defmodule Run.Accounts.UserNotifier do
   import Swoosh.Email
 
-  alias Run.Mailer
-
-  @email_from Application.get_env(:run, Run.Mailer)[:email_from]
+  Run.Mailer
 
   # Delivers the email using the application mailer.
   defp deliver(recipient, subject, body) do
     email =
       new()
       |> to(recipient)
-      |> from({"Run", @email_from})
+      |> from({"LIF-lm", Application.get_env(:run, Run.Mailer)[:email_from]})
       |> subject(subject)
       |> text_body(body)
 

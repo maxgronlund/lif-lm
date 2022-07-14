@@ -50,7 +50,8 @@ defmodule Run.MixProject do
       {:poison, "~> 3.1"},
       {:hackney, "~> 1.16"},
       {:sweet_xml, "~> 0.7.3"},
-      {:slugify, "~> 1.3"}
+      {:slugify, "~> 1.3"},
+      {:gen_smtp, "~> 1.1.1"}
     ]
   end
 
