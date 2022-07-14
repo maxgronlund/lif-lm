@@ -1,0 +1,4 @@
+<h1 class="mt-32 page-header page-title"><%= gettext("Edit User permissions") %> </h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.super_users_path(@conn, :update, @user)) %>
+

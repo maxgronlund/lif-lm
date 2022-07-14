@@ -98,4 +98,11 @@ defmodule RunWeb.Router do
       resources "/posts", PostController
     end
   end
+
+  scope "/super", RunWeb.Super do
+    pipe_through [:browser, :require_super_admin]
+    get "/", DashboardController, :index, as: :super_dashboard
+
+    resources "/users", UserController, as: :super_users
+  end
 end

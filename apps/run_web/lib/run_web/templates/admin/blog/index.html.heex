@@ -1,14 +1,3 @@
-<!--
-<div class="md:container md:mx-auto">
-  <div class="page-header page-title"><%= gettext("Blogs") %></div>
-
-  <div class="flex flex-row flex-wrap item-center">
-    <%= for blog <- @blogs do %>
-      <%= render "_card.html", %{conn: @conn, blog: blog}%>
-    <% end %> 
-  </div>
-</div>
--->
   <div class="container mx-auto p-2 md:p-0">
     <div class="flex flex-wrap -mx-4">
       <%= for blog <- @blogs do %>

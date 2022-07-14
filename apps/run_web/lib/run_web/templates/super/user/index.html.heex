@@ -1,0 +1,46 @@
+<div class="md:container md:mx-auto mt-8">
+  <div class="mt-32 page-header page-title"><%= gettext("Users") %></div>
+</div>
+
+<div class="md:container md:mx-auto mt-8">
+
+<div class="overflow-x-auto relative shadow-md ">
+  <table class="w-full text-base text-left text-gray-500 ">
+    <thead class="font-bold text-gray-700 uppercase bg-gray-50  ">
+      <tr>
+        <th scope="col" class="py-3 px-6">
+          <%= gettext("Username") %>
+        </th>
+        <th scope="col" class="py-3 px-6">
+          <%= gettext("Admin") %> 
+        </th>
+        <th scope="col" class="py-3 px-6">
+          <%= gettext("Super") %> 
+        </th>
+        <th scope="col" class="py-3 px-6">
+        </th>
+      </tr>
+    </thead>
+      <tbody>
+        <%= for user <- @users do %>
+            <tr class="bg-white border-b  hover:bg-gray-50 ">
+              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"> 
+                <%= user.username %>
+              </th>
+              <td>
+                <%= user.admin %>
+              </td>
+              <td>
+                <%= user.super%>
+              </td>
+              <td>
+                <%= link gettext("Edit permissions"), to: Routes.super_users_path(@conn, :edit, user), class: "btn"%>
+              </td>
+            </tr>
+        <% end %> 
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
