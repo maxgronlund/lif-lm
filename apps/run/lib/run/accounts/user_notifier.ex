@@ -3,7 +3,7 @@ defmodule Run.Accounts.UserNotifier do
 
   alias Run.Mailer
 
-  @email_from Application.get_env(:lif_web, Run.Mailer)[:email_from]
+  @email_from Application.get_env(:run, Run.Mailer)[:email_from]
 
   # Delivers the email using the application mailer.
   defp deliver(recipient, subject, body) do

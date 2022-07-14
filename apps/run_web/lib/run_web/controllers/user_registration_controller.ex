@@ -21,7 +21,11 @@ defmodule RunWeb.UserRegistrationController do
         {:ok, _} =
           Accounts.deliver_user_confirmation_instructions(
             user,
-            &Routes.user_confirmation_url(conn, :edit, &1)
+            &Routes.user_confirmation_url(
+              conn |> assign(:breadcrumbs, %{show: false}),
+              :edit,
+              &1
+            )
           )
 
         conn
@@ -29,7 +33,11 @@ defmodule RunWeb.UserRegistrationController do
         |> UserAuth.log_in_user(user)
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(
+          conn |> assign(:breadcrumbs, %{show: false}),
+          "new.html",
+          changeset: changeset
+        )
     end
   end
 end

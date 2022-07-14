@@ -20,7 +20,9 @@ config :run,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :run, Run.Mailer, adapter: Swoosh.Adapters.Local
+config :run, Run.Mailer,
+  adapter: Swoosh.Adapters.Local,
+  email_from: System.get_env("LIF_EMAIL_FROM")
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
@@ -86,11 +88,6 @@ config :ex_aws,
     host: "s3." <> System.get_env("AOFF_AWS_REGION") <> ".amazonaws.com",
     region: System.get_env("AOFF_AWS_REGION")
   ]
-
-config :run_web, Run.Mailer,
-  adapter: Bamboo.SendGridAdapter,
-  api_key: System.get_env("LIF_SEND_GRID_API_KEY"),
-  email_from: System.get_env("LIF_EMAIL_FROM")
 
 # Set default locale to da
 config :gettext, :default_locale, "da"

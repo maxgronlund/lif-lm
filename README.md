@@ -32,3 +32,4 @@ https://limitless-cove-09957.herokuapp.com/ | https://git.heroku.com/limitless-c
 - Aplication name: limitless-cove-09957
 - heroku run "POOL_SIZE=2 mix hello.task"
 heroku pg:credentials:create postgresql-slippery-91346 --name postgres -a lif-lm
+
