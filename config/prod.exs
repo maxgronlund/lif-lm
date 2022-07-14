@@ -10,7 +10,7 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :run_web, RunWeb.Endpoint,
-  url: [scheme: "https", host: "limitless-cove-09957", port: System.get_env("PORT")],
+  url: [scheme: "https", host: "lif-lm.herokuapp.com", port: System.get_env("PORT")],
   force_ssl: [rewrite_on: [:x_forwarded_proto]]
 
 # ## SSL Support
