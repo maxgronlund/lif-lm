@@ -91,7 +91,8 @@ defmodule RunWeb.Router do
   end
 
   scope "/admin", RunWeb.Admin do
-    pipe_through [:browser, :require_admin]
+    # pipe_through [:browser, :require_admin]
+    pipe_through [:browser]
     get "/", DashboardController, :index, as: :admin_dashboard
 
     resources "/blogs", BlogController, as: :admin_blogs do
