@@ -1,7 +1,7 @@
 defmodule Run.Accounts.UserNotifier do
   import Swoosh.Email
 
-  Run.Mailer
+  alias Run.Mailer
 
   # Delivers the email using the application mailer.
   defp deliver(recipient, subject, body) do
