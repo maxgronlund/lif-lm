@@ -11,6 +11,7 @@ defmodule Run.Admin.Post do
     field :author, :string
     field :body, :string
     field :title, :string
+    field :link, :string
     field :identifier, :string
     field :image, Image.Type
 
@@ -22,7 +23,7 @@ defmodule Run.Admin.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:title, :body, :author, :blog_id, :identifier])
+    |> cast(attrs, [:title, :link, :body, :author, :blog_id, :identifier])
     |> validate_required([:title, :body])
     |> unique_constraint(:post_blog_id_identifier_index)
     |> unique_constraint(:post_identifier_index)

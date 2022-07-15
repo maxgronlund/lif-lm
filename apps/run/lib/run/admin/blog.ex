@@ -12,7 +12,7 @@ defmodule Run.Admin.Blog do
     field :page, :string
     field :title, :string
     field :image, Image.Type
-
+    field :link, :string
     has_many :posts, Run.Admin.Post
 
     timestamps()
@@ -21,7 +21,7 @@ defmodule Run.Admin.Blog do
   @doc false
   def changeset(blog, attrs) do
     blog
-    |> cast(attrs, [:page, :title, :description])
+    |> cast(attrs, [:page, :title, :description, :link])
     |> validate_required([:page, :title, :description])
     |> unique_constraint(:blogs_page_title_index)
     |> cast_attachments(attrs, [:image])

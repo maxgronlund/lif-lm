@@ -31,5 +31,4 @@ https://flowbite.com/docs/getting-started/quickstart/
 - heroku run "POOL_SIZE=2 mix run apps/run/priv/repo/seeds.exs" --app limitless-cove-09957
 - Aplication name: limitless-cove-09957
 - heroku run "POOL_SIZE=2 mix hello.task"
-heroku pg:credentials:create postgresql-slippery-91346 --name postgres -a lif-lm
 

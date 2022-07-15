@@ -8,6 +8,7 @@ defmodule Run.Repo.Migrations.CreatePosts do
       add :body, :text
       add :author, :string
       add :identifier, :string
+      add :link, :string, default: "#"
       add :image, :string
       add :blog_id, references(:blogs, on_delete: :delete_all, type: :binary_id)
 

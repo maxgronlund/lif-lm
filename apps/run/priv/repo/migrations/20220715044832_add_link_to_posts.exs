@@ -1,8 +1,8 @@
-defmodule Run.Repo.Migrations.AddLinkToBlog do
+defmodule Run.Repo.Migrations.AddLinkToPosts do
   use Ecto.Migration
 
   def change do
-    alter table(:blogs) do
+    alter table(:posts) do
       add :link, :string, default: "#"
     end
   end
