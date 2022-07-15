@@ -4,8 +4,8 @@
   <div class="mt-10 text-4xl text-center font-bold"><%= @blog.title %></div>
 </div>
 
-<div class="md:container md:mx-auto mt-8">
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+ <div class="container mx-auto p-2 md:p-0">
+    <div class="flex flex-wrap -mx-4">
     <%= render "_card.html", %{post: @welcome_post} %>
     <%= render "_card.html", %{post: @training_post} %>
     <%= render "_card.html", %{post: @become_member_post} %>

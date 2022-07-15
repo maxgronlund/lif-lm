@@ -24,7 +24,7 @@ https://flowbite.com/docs/getting-started/quickstart/
 - card [codepen](https://codepen.io/handplant/pen/MWWaYNw?editors=1000)
 
 ## Hekoku
-https://limitless-cove-09957.herokuapp.com/ | https://git.heroku.com/limitless-cove-09957.git
+
 
 - heroku run "POOL_SIZE=2 mix ecto.create" --app lif-lm
 - heroku run "POOL_SIZE=2 mix ecto.migrate" --app lif-lm 

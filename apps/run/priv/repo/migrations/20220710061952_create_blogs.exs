@@ -8,6 +8,7 @@ defmodule Run.Repo.Migrations.CreateBlogs do
       add :title, :string
       add :description, :text
       add :image, :string
+      add :link, :string, default: "#"
 
       timestamps()
     end

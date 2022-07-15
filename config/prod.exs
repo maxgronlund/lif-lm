@@ -12,7 +12,8 @@ import Config
 config :run_web, RunWeb.Endpoint,
   # url: [scheme: "https", host: "lif-lm.herokuapp.com", port: System.get_env("PORT")],
   url: [scheme: "https", host: "lif-lm.herokuapp.com", port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]]
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  cache_static_manifest: "priv/static/cache_manifest.json"
 
 # ## SSL Support
 #
