@@ -16,6 +16,12 @@
         </div>
       </div>
 
+      <%= label f, :link, gettext("Link"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <%= text_input f, :link, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <div class="text-red-500">
+        <%= error_tag f, :link%>
+      </div>
+
       <%= label f, :image, class: "block text-gray-700 text-m font-bold mb-2" %>
       <%= file_input f, :image, class: "form-input px-4 py-3 rounded-md w-full" %>
       <div class="text-red-500">

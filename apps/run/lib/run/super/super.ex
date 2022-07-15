@@ -17,7 +17,7 @@ defmodule Run.Super do
   end
 
   def list_users do
-    Repo.all(User)
+    Repo.all(from u in User, order_by: u.username)
   end
 
   def get_user!(id) do

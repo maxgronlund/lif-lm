@@ -1,4 +1,4 @@
-defmodule RunWeb.UserSettingsController do
+defmodule RunWeb.User.SettingsController do
   use RunWeb, :controller
 
   alias Run.Accounts

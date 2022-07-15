@@ -12,7 +12,13 @@
           <%= gettext("Username") %>
         </th>
         <th scope="col" class="py-3 px-6">
+          <%= gettext("email") %>
+        </th>
+        <th scope="col" class="py-3 px-6">
           <%= gettext("Admin") %> 
+        </th>
+        <th scope="col" class="py-3 px-6">
+          <%= gettext("Architect") %> 
         </th>
         <th scope="col" class="py-3 px-6">
           <%= gettext("Super") %> 
@@ -28,7 +34,13 @@
                 <%= user.username %>
               </th>
               <td>
+                <%= user.email%>
+              </td>
+              <td>
                 <%= user.admin %>
+              </td>
+              <td>
+                <%= user.architect%>
               </td>
               <td>
                 <%= user.super%>

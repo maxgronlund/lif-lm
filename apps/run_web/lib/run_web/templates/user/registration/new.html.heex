@@ -1,5 +1,6 @@
 <div class="top-header"><%= gettext("Register") %></div>
 
+
 <div class="w-full px-4">
    <div class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]" data-wow-delay=".15s" style="visibility: visible; animation-delay: 0.15s;">
     <.form let={f} for={@changeset} action={Routes.user_registration_path(@conn, :create)} multipart={true}>
@@ -10,7 +11,7 @@
       <% end %>
 
       <%= label f, :avatar, class: "block text-gray-700 text-m font-bold mb-2" %>
-      <%= file_input f, :avatar, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <%= file_input f, :avatar, class: "px-4 py-3 block w-full text-l text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none" %>
       <div class="text-red-500">
         <%= error_tag f, :avatar %>
       </div>

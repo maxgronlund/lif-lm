@@ -13,6 +13,7 @@ defmodule Run.Repo.Migrations.CreateUsersAuthTables do
       add :avatar, :string
       add :admin, :boolean, default: false
       add :super, :boolean, default: false
+      add :architect, :boolean, default: false
       timestamps()
     end
 

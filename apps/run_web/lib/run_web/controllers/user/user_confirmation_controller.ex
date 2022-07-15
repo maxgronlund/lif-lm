@@ -1,4 +1,4 @@
-defmodule RunWeb.UserConfirmationController do
+defmodule RunWeb.User.ConfirmationController do
   use RunWeb, :controller
 
   alias Run.Accounts

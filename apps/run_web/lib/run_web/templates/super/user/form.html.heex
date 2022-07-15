@@ -12,10 +12,20 @@
       <div class="flex items-center mb-4">
         <%= label f, :admin do %> 
           <%= checkbox f, :admin, class: "w-6 h-6 text-blue-600 bg-gray-100 rounded border-gray-700 focus:ring-blue-500 focus:ring-2" %>
-          <%= label f, :admin, gettext("Admin"), class: "ml-2 text-xl font-medium text-gray-900" %> 
+          <%= label f, :adimn, gettext("Admin"), class: "ml-2 text-xl font-medium text-gray-900" %> 
         <% end %>
         <div class="text-red-500">
           <%= error_tag f, :admin%>
+        </div>
+      </div>
+
+      <div class="flex items-center mb-4">
+        <%= label f, :architect do %> 
+          <%= checkbox f, :architect, class: "w-6 h-6 text-blue-600 bg-gray-100 rounded border-gray-700 focus:ring-blue-500 focus:ring-2" %>
+          <%= label f, :architect, gettext("Architect"), class: "ml-2 text-xl font-medium text-gray-900" %> 
+        <% end %>
+        <div class="text-red-500">
+          <%= error_tag f, :architect%>
         </div>
       </div>
 

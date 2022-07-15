@@ -23,7 +23,7 @@ import "phoenix_html"
 import { Socket } from "phoenix"
 import { LiveSocket } from "phoenix_live_view"
 import topbar from "../vendor/topbar"
-// import flowbite from "../vendor/flowbite"
+//import flowbite from "../vendor/flowbite"
 //import Drag from '../vendor/dragHook';
 //import 'tw-elements';
 //import 'flowbite';

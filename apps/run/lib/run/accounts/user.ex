@@ -17,6 +17,7 @@ defmodule Run.Accounts.User do
     field :avatar, Image.Type
     field :admin, :boolean, default: false
     field :super, :boolean, default: false, redact: true
+    field :architect, :boolean, default: false, redact: true
 
     timestamps()
   end
@@ -54,8 +55,10 @@ defmodule Run.Accounts.User do
   end
 
   def super_permission_changeset(user, attrs, _opts \\ []) do
+    IO.inspect(attrs)
+
     user
-    |> cast(attrs, [:admin, :super])
+    |> cast(attrs, [:admin, :super, :architect])
   end
 
   defp validate_email(changeset) do

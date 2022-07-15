@@ -1,4 +1,4 @@
-defmodule RunWeb.UserSessionController do
+defmodule RunWeb.User.SessionController do
   use RunWeb, :controller
 
   alias Run.Accounts

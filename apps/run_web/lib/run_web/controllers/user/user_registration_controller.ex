@@ -1,4 +1,4 @@
-defmodule RunWeb.UserRegistrationController do
+defmodule RunWeb.User.RegistrationController do
   use RunWeb, :controller
 
   alias Run.Accounts

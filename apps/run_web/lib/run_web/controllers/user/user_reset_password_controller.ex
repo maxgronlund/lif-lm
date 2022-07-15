@@ -1,4 +1,4 @@
-defmodule RunWeb.UserResetPasswordController do
+defmodule RunWeb.User.ResetPasswordController do
   use RunWeb, :controller
 
   alias Run.Accounts
