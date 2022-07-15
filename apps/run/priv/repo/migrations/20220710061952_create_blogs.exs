@@ -5,6 +5,7 @@ defmodule Run.Repo.Migrations.CreateBlogs do
     create table(:blogs, primary_key: false) do
       add :id, :binary_id, primary_key: true
       add :page, :string
+      add :identifier, :string
       add :title, :string
       add :description, :text
       add :image, :string
