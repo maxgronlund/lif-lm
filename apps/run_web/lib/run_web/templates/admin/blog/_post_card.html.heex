@@ -8,6 +8,8 @@
   </div>
   <div class="absolute bottom-2 ml-2">
     <%= link "Edit", to: Routes.admin_blogs_post_path(@conn, :edit, @blog, @post), class: "btn" %>
-    <%= link "Delete", to: Routes.admin_blogs_post_path(@conn, :delete,@blog, @post), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
+    <% if @current_user.architect do %>
+      <%= link "Delete", to: Routes.admin_blogs_post_path(@conn, :delete,@blog, @post), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
+    <% end %>
   </div>
 </div>

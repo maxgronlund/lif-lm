@@ -9,8 +9,14 @@
         </div>
       <% end %>
 
+      <%= label f, :identifier, gettext("Identifier"), class: "block text-gray-700 text-m font-bold mb-2" %>
+      <%= text_input f, :identifier, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <div class="text-red-500">
+        <%= error_tag f, :identifier%>
+      </div>
+
       <%= label f, :link, gettext("Link"), class: "block text-gray-700 text-m font-bold mb-2" %>
-      <%= text_input f, :link, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <%= text_input f, :link, class: "form-input px-4 py-3 rounded-md w-full" %>
       <div class="text-red-500">
         <%= error_tag f, :link%>
       </div>

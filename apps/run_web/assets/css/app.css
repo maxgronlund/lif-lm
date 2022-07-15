@@ -133,7 +133,7 @@ body {
   }
 
   .page-title {
-    @apply text-black font-semibold text-2xl text-center px-4 w-full items-center
+    @apply text-black font-semibold text-2xl px-4 w-full items-center
   }
 
   .top-link {

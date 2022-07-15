@@ -1,20 +1,32 @@
-<div class="md:container md:mx-auto mt-8">
-  <div class="mt-32 page-header page-title"><%= @blog.title %></div>
-  <%= @blog.page%>
-  <br/>
-  <%= @blog.description %>
-  <br/>
-  <%= link gettext("Edit Blog"), to: Routes.admin_blogs_path(@conn, :edit, @blog), class: "btn btn-blue" %>
-  <%= link gettext("Delete"), to: Routes.admin_blogs_path(@conn, :delete,@blog), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
-  <br/>
-  <%= img_tag Run.Uploader.Image.url({@blog.image, @blog}, :post_card)%>
+<div class="md:container md:mx-auto p-4 pt-8">
+  <div class="columns-2">
+    <%= img_tag Run.Uploader.Image.url({@blog.image, @blog}, :post_card)%>
+    <div class="text-black font-semibold text-2xl w-full">
+      <%= @blog.title %>
+    </div>
+    <div class="mt-4">
+      <%= link gettext("Edit Blog"), to: Routes.admin_blogs_path(@conn, :edit, @blog), class: "btn btn-blue" %>
+      <%= if @current_user.architect do %>
+        <%= link gettext("Delete"), to: Routes.admin_blogs_path(@conn, :delete,@blog), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
+      <% end %>
+    </div>
+    <div class="mt-4 text-xl font-medium">
+      <%= gettext("show on: %{page}", page: @blog.page) %>
+    </div>
+    <br/>
+    <div class="pr-4">
+      <%= @blog.description %>
+    </div>
+  </div>
 
 
-  <div class="mt-10 mb-10 page-header page-title"><%= gettext("posts")%></div>
-  <%= link gettext("New post"), to: Routes.admin_blogs_post_path(@conn, :new, @blog), class: "btn btn-blue" %>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+  <div class="mt-10 mb-10 page-header page-title"><%= gettext("Posts")%></div>
+  <div class="mb-4">
+    <%= link gettext("New post"), to: Routes.admin_blogs_post_path(@conn, :new, @blog), class: "btn btn-blue" %>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     <%= for post <- @blog.posts do %>
-        <%= render "_post_card.html", %{conn: @conn, blog: @blog, post: post}%>
+        <%= render "_post_card.html", %{conn: @conn, blog: @blog, post: post, current_user: @current_user}%>
     <% end %> 
   </div>
 

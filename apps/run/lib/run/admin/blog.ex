@@ -8,6 +8,7 @@ defmodule Run.Admin.Blog do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "blogs" do
+    field :identifier, :string
     field :description, :string
     field :page, :string
     field :title, :string
@@ -21,7 +22,7 @@ defmodule Run.Admin.Blog do
   @doc false
   def changeset(blog, attrs) do
     blog
-    |> cast(attrs, [:page, :title, :description, :link])
+    |> cast(attrs, [:identifier, :page, :title, :description, :link])
     |> validate_required([:page, :title, :description])
     |> unique_constraint(:blogs_page_title_index)
     |> cast_attachments(attrs, [:image])

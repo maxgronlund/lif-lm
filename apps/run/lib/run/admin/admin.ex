@@ -42,15 +42,15 @@ defmodule Run.Admin do
     |> Repo.preload([:posts])
   end
 
-  def get_blog_with_posts_by_page!(page) do
+  def get_blog_with_posts_by_identifier!(identifier) do
     query =
       from b in Blog,
-        where: b.page == ^page,
+        where: b.identifier == ^identifier,
         preload: [posts: b]
 
     case Repo.one(query) do
       nil ->
-        {:ok, blog} = create_blog(%{page: page, title: page, description: page})
+        {:ok, blog} = create_blog(%{page: identifier, title: identifier, description: identifier})
         blog
 
       blog ->

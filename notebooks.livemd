@@ -5,7 +5,7 @@
 ```elixir
 alias Run.Admin
 
-blog_id = Admin.get_blog_with_posts_by_page!("landidsdng_pasdfge").id
+blog_id = Admin.get_blog_with_posts_by_identifier!("landidsdng_pasdfge").id
 ```
 
 ```elixir
