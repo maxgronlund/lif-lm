@@ -15,7 +15,17 @@
       </div>
 
       <%= label f, :link, gettext("Link"), class: "block text-gray-700 text-m font-bold mb-2" %>
-      <%= text_input f, :link, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <%#= text_input f, :link, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <%= select f, :link, [
+        [key: gettext("Landing page"), value: Routes.landing_page_path(@conn, :index)],
+        [key: gettext("About page"), value: Routes.about_page_path(@conn, :index)],
+        [key: gettext("Sign-up page"), value: Routes.sign_up_page_path(@conn, :index)],
+        [key: gettext("Training page"), value: Routes.training_page_path(@conn, :index)],
+        [key: gettext("Contact page"), value: Routes.contact_page_path(@conn, :index)],
+        [key: gettext("Calendar page"), value: Routes.calendar_page_path(@conn, :index)],
+        [key: gettext("Events page"), value: Routes.events_page_path(@conn, :index)],
+        [key: gettext("Committees"), value: Routes.committees_page_path(@conn, :index)]
+      ] %>
       <div class="text-red-500">
         <%= error_tag f, :link%>
       </div>

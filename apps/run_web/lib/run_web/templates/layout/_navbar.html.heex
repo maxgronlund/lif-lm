@@ -10,9 +10,11 @@
     </button>
     <div class="hidden w-full md:block md:w-auto z-30" id="mobile-menu">
       <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0">
-        <li>
-					<%= link gettext("Home"), to: Routes.landing_page_path(@conn, :index), class: "menu-item" %> 
-        </li>
+        <%= if @current_user && @current_user.admin do %>
+          <li>
+            <%= link gettext("Adimin"), to: Routes.admin_dashboard_path(@conn, :index), class: "menu-item" %> 
+          </li>
+        <% end %>
 				<%= if @current_user do %>
 					<li>
 						<%= link gettext("Settings"), to: Routes.user_settings_path(@conn, :edit), class: "menu-item"%>

@@ -1,3 +1,9 @@
-<div class="page-title form-component"><%= gettext("Edit post") %></div>
+<div class="page-title form-component">
+  <%= gettext("Edit post") %>
+</div>
+<%= if @current_user.architect do %>
+  <div class="form-component">
+    <%= link "Delete", to: Routes.admin_blogs_post_path(@conn, :delete, @blog, @post), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-red" %>
+  </div>
+<% end %>
 <%= render "form.html", Map.put(assigns, :action, Routes.admin_blogs_post_path(@conn, :update, @blog, @post)) %>
-

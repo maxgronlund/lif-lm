@@ -17,10 +17,17 @@ defmodule RunWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", RunWeb do
+  scope "/", RunWeb.Page do
     pipe_through :browser
 
-    get "/", LandingPageController, :index
+    get "/", LandingController, :index, as: :landing_page
+    get "/about", AboutController, :index, as: :about_page
+    get "/sign-up", SignUpController, :index, as: :sign_up_page
+    get "/training", TrainingController, :index, as: :training_page
+    get "/contact", ContactController, :index, as: :contact_page
+    get "/calendar", CalendarController, :index, as: :calendar_page
+    get "/events", EventsController, :index, as: :events_page
+    get "/committees", CommitteesPageController, :index, as: :committees_page
   end
 
   # Other scopes may use custom stacks.
@@ -102,9 +109,9 @@ defmodule RunWeb.Router do
   end
 
   scope "/club", RunWeb.Club do
-    pipe_through [:browser, :require_authenticated_user]
+    pipe_through [:browser, :require_admin]
 
-    resources "/memberships", MembershipsController, as: :club_membership
+    resources "/memberships", MembershipController, as: :club_membership
   end
 
   scope "/super", RunWeb.Super do

@@ -1,3 +1,14 @@
+<script>
+  tinymce.init({
+    selector: '#body_input',
+    menubar: false,
+    toolbar: "alignleft aligncenter alignright | formatselect bold italic | indent outdent | bullist numlist | code",
+    height : 300,
+    //content_css: "#{Routes.static_path(@conn, "/css/app.css")}",
+    plugins: "code lists"
+  });
+</script>
+
 <div class="w-full px-4">
   <div class="form-component">
     <.form let={f} for={@changeset} action={@action} multipart={true}>
@@ -17,7 +28,17 @@
       <% end %>
 
       <%= label f, :link, gettext("Link"), class: "block text-gray-700 text-m font-bold mb-2" %>
-      <%= text_input f, :link, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <%#= text_input f, :link, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+      <%= select f, :link, [
+        [key: gettext("Landing page"), value: Routes.landing_page_path(@conn, :index)],
+        [key: gettext("About page"), value: Routes.about_page_path(@conn, :index)],
+        [key: gettext("Sign-up page"), value: Routes.sign_up_page_path(@conn, :index)],
+        [key: gettext("Training page"), value: Routes.training_page_path(@conn, :index)],
+        [key: gettext("Contact page"), value: Routes.contact_page_path(@conn, :index)],
+        [key: gettext("Calendar page"), value: Routes.calendar_page_path(@conn, :index)],
+        [key: gettext("Events page"), value: Routes.events_page_path(@conn, :index)],
+        [key: gettext("Committees"), value: Routes.committees_page_path(@conn, :index)]
+      ] %>
       <div class="text-red-500">
         <%= error_tag f, :link%>
       </div>
@@ -38,7 +59,7 @@
 
       <%= label f, :body, gettext("Body"), class: "block text-gray-700 text-m font-bold mb-2" %>
       <div class="mb-6">
-        <%= textarea f, :body, required: true, class: "form-input px-4 py-3 rounded-md w-full h-32" %>
+        <%= textarea f, :body, required: true, class: "form-input px-4 py-3 rounded-md w-full h-32", id: "body_input" %>
         <div class="text-red-500">
           <%= error_tag f, :body %>
         </div>
