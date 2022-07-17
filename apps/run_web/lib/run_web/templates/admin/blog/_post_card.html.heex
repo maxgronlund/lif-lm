@@ -3,6 +3,14 @@
     <%= img_tag Run.Uploader.Image.url({@post.image, @post}, :post_card), alt: ""%>
     <div class="p-4 pt-2">
       <h5 class="text-gray-900 text-xl font-bold mt-2 mb-2"><%= @post.title %></h5>
+      <span class="
+        bg-green-100 
+        text-green-800 
+        text-xs 
+        font-semibold 
+        mr-2 px-2.5 py-0.5 rounded 
+        dark:bg-green-200 
+        dark:text-green-900"><%= @post.identifier %></span>
       <div class="mt-1 mb-10"><%= @post.body%></div>
     </div>
   </div>

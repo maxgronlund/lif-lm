@@ -1,29 +1,23 @@
 defmodule RunWeb.Admin.DashboardControllerTest do
-  use RunWeb.ConnCase
+  use RunWeb.ConnCase, async: true
 
-  import Run.AccountsFixtures
-
-  alias RunWeb.UserAuth
-  alias Run.Accounts
-
-  setup %{conn: conn} do
-    user = user_fixture()
-
-    conn =
-      conn
-      |> Map.replace!(:secret_key_base, RunWeb.Endpoint.config(:secret_key_base))
-      |> init_test_session(%{})
-
-    user_token = Accounts.generate_user_session_token(user)
-    conn = conn |> put_session(:user_token, user_token) |> UserAuth.fetch_current_user([])
-
-    %{user: user, conn: conn}
-  end
+  setup :register_and_log_in_user
 
   describe "index" do
-    test "show the dashboard", %{conn: conn} do
+    test "render dashboard", %{conn: conn, user: user} do
+      promote_to_admin(user)
       conn = get(conn, Routes.admin_dashboard_path(conn, :index))
-      assert html_response(conn, 200) =~ "Admin"
+      response = html_response(conn, 200)
+      assert response =~ "Settings"
+    end
+
+    test "redirects if user is not admin", %{conn: conn} do
+      conn = get(conn, Routes.admin_dashboard_path(conn, :index))
+      assert redirected_to(conn) == "/"
     end
   end
+
+  #  def promote_to_admin(user) do
+  #    Run.Super.update_permissions(user, %{admin: true})
+  #  end
 end

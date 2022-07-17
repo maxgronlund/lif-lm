@@ -164,8 +164,6 @@ defmodule RunWeb.UserAuth do
   end
 
   def require_admin(conn, _opts) do
-    IO.inspect(conn.assigns[:current_user])
-
     if admin?(conn.assigns[:current_user]) do
       conn
     else

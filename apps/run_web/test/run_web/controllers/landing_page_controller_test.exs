@@ -1,5 +1,5 @@
 defmodule RunWeb.LandingPageControllerTest do
-  use RunWeb.ConnCase
+  use RunWeb.ConnCase, async: true
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

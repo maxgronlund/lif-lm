@@ -15,17 +15,10 @@ defmodule RunWeb.BlogControllerTest do
   @invalid_attrs %{description: nil, page: nil, title: nil}
 
   setup %{conn: conn} do
-    user = admin_fixture()
+    %{conn: conn, user: user} = register_and_log_in_user(%{conn: conn})
+    {:ok, user} = promote_to_admin(user)
 
-    conn =
-      conn
-      |> Map.replace!(:secret_key_base, RunWeb.Endpoint.config(:secret_key_base))
-      |> init_test_session(%{})
-
-    user_token = Accounts.generate_user_session_token(user)
-    conn = conn |> put_session(:user_token, user_token) |> UserAuth.fetch_current_user([])
-
-    %{user: user, conn: conn}
+    %{conn: conn, user: user}
   end
 
   describe "index" do
@@ -36,7 +29,7 @@ defmodule RunWeb.BlogControllerTest do
   end
 
   # describe "new blog" do
-  #   test "renders form", %{conn: conn} do
+  #   test "as an architect it renders form", %{conn: conn, user: user} do
   #     conn = get(conn, Routes.admin_blogs_path(conn, :new))
   #     assert html_response(conn, 200) =~ "New Blog"
   #   end

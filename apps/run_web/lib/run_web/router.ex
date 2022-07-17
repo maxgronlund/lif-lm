@@ -101,6 +101,12 @@ defmodule RunWeb.Router do
     end
   end
 
+  scope "/club", RunWeb.Club do
+    pipe_through [:browser, :require_authenticated_user]
+
+    resources "/memberships", MembershipsController, as: :club_membership
+  end
+
   scope "/super", RunWeb.Super do
     pipe_through [:browser, :require_super_admin]
     get "/", DashboardController, :index, as: :super_dashboard

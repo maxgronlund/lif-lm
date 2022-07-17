@@ -1,5 +1,5 @@
 defmodule RunWeb.PostControllerTest do
-  use RunWeb.ConnCase
+  use RunWeb.ConnCase, async: true
 
   import Run.AdminFixtures
   import Run.AccountsFixtures
@@ -9,7 +9,8 @@ defmodule RunWeb.PostControllerTest do
 
   @create_attrs %{author: "some author", body: "some body", title: "some title"}
   @update_attrs %{
-    author: "some updated author",
+    link: "some updated link - #{System.unique_integer()}",
+    author: "some updated author - #{System.unique_integer()}",
     body: "some updated body",
     title: "some updated title",
     identifier: "some updated identifier"

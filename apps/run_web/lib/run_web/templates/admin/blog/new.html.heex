@@ -1,5 +1,4 @@
-<h1>New Blog</h1>
+<h1 class="page-title form-component"><%= gettext("New Blog") %> </h1>
 
 <%= render "form.html", Map.put(assigns, :action, Routes.admin_blogs_path(@conn, :create)) %>
 
-<span><%= link "Back", to: Routes.admin_blogs_path(@conn, :index) %></span>

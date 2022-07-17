@@ -120,6 +120,10 @@ body {
 
 @layer components {
 
+  .form-component {
+    @apply relative mx-auto max-w-[800px] overflow-hidden bg-white pt-8 px-8 sm:px-12 md:px-[60px]
+  }
+
   .menu-item {
     @apply block py-2 pr-4 pl-3 text-black md:text-white border-b border-gray-100 bg-gray-200 bg-gray-200 md:bg-red-600 hover:bg-red-500 md:border-0 md:p-0
   }
@@ -133,7 +137,7 @@ body {
   }
 
   .page-title {
-    @apply text-black font-semibold text-2xl px-4 w-full items-center
+    @apply text-black font-semibold text-2xl  
   }
 
   .top-link {

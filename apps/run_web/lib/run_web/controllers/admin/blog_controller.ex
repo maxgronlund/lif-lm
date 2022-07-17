@@ -4,6 +4,17 @@ defmodule RunWeb.Admin.BlogController do
   alias Run.Admin
   alias Run.Admin.Blog
 
+  def permitted(conn) do
+    if conn.assigns[:current_user].architect do
+      conn
+    else
+      conn
+      |> put_flash(:info, gettext("You need permissions to access that page"))
+      |> redirect(to: Routes.admin_blogs_path(conn, :index))
+      |> halt()
+    end
+  end
+
   def index(conn, _params) do
     blogs = Admin.list_blogs()
 
@@ -16,26 +27,32 @@ defmodule RunWeb.Admin.BlogController do
   end
 
   def new(conn, _params) do
+    permitted(conn)
     changeset = Admin.change_blog(%Blog{})
-    render(conn, "new.html", changeset: changeset)
+
+    render(
+      conn |> assign(:breadcrumbs, new_blog_breadcrumbs(conn)),
+      "new.html",
+      changeset: changeset
+    )
   end
 
-  # def create(conn, %{"blog" => blog_params}) do
-  #   case Admin.create_blog(blog_params) do
-  #     {:ok, blog} ->
-  #       conn
-  #       |> put_flash(:info, "Blog created successfully.")
-  #       |> redirect(to: Routes.admin_blogs_path(conn, :show, blog))
+  def create(conn, %{"blog" => blog_params}) do
+    case Admin.create_blog(blog_params) do
+      {:ok, blog} ->
+        conn
+        |> put_flash(:info, "Blog created successfully.")
+        |> redirect(to: Routes.admin_blogs_path(conn, :show, blog))
 
-  #     {:error, %Ecto.Changeset{} = changeset} ->
-  #       render(
-  #         conn
-  #         |> assign(:breadcrumbs, false),
-  #         "new.html",
-  #         changeset: changeset
-  #       )
-  #   end
-  # end
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(
+          conn
+          |> assign(:breadcrumbs, new_blog_breadcrumbs(conn)),
+          "new.html",
+          changeset: changeset
+        )
+    end
+  end
 
   def show(conn, %{"id" => id}) do
     blog = Admin.get_blog_with_posts!(id)
@@ -119,6 +136,16 @@ defmodule RunWeb.Admin.BlogController do
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
       links: [%{title: "admin", path: Routes.admin_dashboard_path(conn, :index)}],
       current_page: gettext("blogs")
+    }
+  end
+
+  defp new_blog_breadcrumbs(conn) do
+    %{
+      show: true,
+      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      links: [%{title: "admin", path: Routes.admin_dashboard_path(conn, :index)}],
+      links: [%{title: "blogs", path: Routes.admin_blogs_path(conn, :index)}],
+      current_page: gettext("new blog")
     }
   end
 end

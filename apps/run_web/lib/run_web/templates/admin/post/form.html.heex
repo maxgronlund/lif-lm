@@ -1,7 +1,6 @@
 <div class="w-full px-4">
-  <div class="relative mx-auto max-w-[800px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]">
+  <div class="form-component">
     <.form let={f} for={@changeset} action={@action} multipart={true}>
-
       <%= if @changeset.action do %>
         <div class="alert alert-danger">
           <p>Oops, something went wrong! Please check the errors below.</p>
