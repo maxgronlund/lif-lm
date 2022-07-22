@@ -123,7 +123,7 @@ defmodule RunWeb.Router do
   end
 
   scope "/club", RunWeb.Club do
-    pipe_through [:browser]
+    pipe_through [:browser, :redirect_if_user_is_authenticated]
 
     get "/member/new", MemberController, :new, as: :new_member
     post "/member", MemberController, :create, as: :new_member

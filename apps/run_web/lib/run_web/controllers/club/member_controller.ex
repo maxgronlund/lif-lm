@@ -77,6 +77,15 @@ defmodule RunWeb.Club.MemberController do
         conn
         |> put_flash(:info, "Account updated successfully.")
         |> redirect(to: Routes.show_member_path(conn, :show))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(
+          conn
+          |> assign(:breadcrumbs, breadcrumbs(conn)),
+          "edit.html",
+          user: user,
+          changeset: changeset
+        )
     end
   end
 
