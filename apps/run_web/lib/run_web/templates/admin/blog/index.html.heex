@@ -1,11 +1,14 @@
-<div class="relative pt-8 mb-8 page-header page-title"><%= gettext("Blogs")%></div>
-<div class="container mx-auto p-2 md:p-0">
-<%= if @current_user.architect do %>
-  <%= link gettext("New Blog"), to: Routes.admin_blogs_path(@conn, :new), class: "btn" %>
-<% end %>
-  <div class="flex flex-wrap -mx-4">
-    <%= for blog <- @blogs do %>
-      <%= render "_card.html", %{conn: @conn, blog: blog}%>
-    <% end %> 
+<div class="md:container md:mx-auto mt-8">
+  <div class="relative pt-8 mb-8 page-header page-title"><%= gettext("Blogs")%></div>
+  <%= render RunWeb.SharedView, "tabs.html", %{tabs: @tabs} %>
+  <%= if @current_user.architect do %>
+    <%= link gettext("New blog"), to: Routes.admin_blog_path(@conn, :new), class: "mb-4 btn btn-blue" %>
+  <% end %>
+  <div class="">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <%= for blog <- @blogs do %>
+        <%= render "_blog_card.html", %{conn: @conn, blog: blog}%>
+      <% end %> 
+    </div>
   </div>
 </div>

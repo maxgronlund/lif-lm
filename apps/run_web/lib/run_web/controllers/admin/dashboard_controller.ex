@@ -4,7 +4,8 @@ defmodule RunWeb.Admin.DashboardController do
   def index(conn, _params) do
     render(
       conn
-      |> assign(:breadcrumbs, breadcrumbs(conn)),
+      |> assign(:breadcrumbs, breadcrumbs(conn))
+      |> assign(:tabs, tabs(conn)),
       "index.html"
     )
   end
@@ -16,5 +17,13 @@ defmodule RunWeb.Admin.DashboardController do
       links: [],
       current_page: gettext("admin")
     }
+  end
+
+  defp tabs(conn) do
+    [
+      %{label: gettext("admin"), link: Routes.admin_path(conn, :index), active: true},
+      %{label: gettext("blogs"), link: Routes.admin_blogs_path(conn, :index), active: false},
+      %{label: gettext("users"), link: Routes.admin_users_path(conn, :index), active: false}
+    ]
   end
 end

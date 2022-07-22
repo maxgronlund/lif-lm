@@ -1,3 +1,7 @@
+<div class="md:container md:mx-auto mt-8">
+  <div class="relative pt-8 mb-8 page-header page-title"><%= @blog.title%></div>
+  <%= render RunWeb.SharedView, "tabs.html", %{tabs: @tabs} %>
+</div>
 <div class="md:container md:mx-auto p-4 pt-8">
   <div class="columns-2">
     <%= img_tag Run.Uploader.Image.url({@blog.image, @blog}, :post_card)%>
@@ -7,7 +11,7 @@
     <div class="mt-4">
       <%= link gettext("Edit Blog"), to: Routes.admin_blogs_path(@conn, :edit, @blog), class: "btn btn-blue" %>
       <%= if @current_user.architect do %>
-        <%= link gettext("Delete"), to: Routes.admin_blogs_path(@conn, :delete,@blog), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
+        <%= link gettext("Delete"), to: Routes.admin_blog_path(@conn, :delete, @blog), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
       <% end %>
     </div>
     <div class="mt-4 text-xl font-medium">

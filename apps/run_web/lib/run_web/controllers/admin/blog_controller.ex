@@ -4,34 +4,36 @@ defmodule RunWeb.Admin.BlogController do
   alias Run.Admin
   alias Run.Admin.Blog
 
-  def permitted(conn) do
-    if conn.assigns[:current_user].architect do
-      conn
-    else
-      conn
-      |> put_flash(:info, gettext("You need permissions to access that page"))
-      |> redirect(to: Routes.admin_blogs_path(conn, :index))
-      |> halt()
-    end
-  end
+  # def permitted(conn) do
+  #   if conn.assigns[:current_user].architect do
+  #     conn
+  #   else
+  #     conn
+  #     |> put_flash(:info, gettext("You need permissions to access that page"))
+  #     |> redirect(to: Routes.admin_blogs_path(conn, :index))
+  #     |> halt()
+  #   end
+  # end
 
   def index(conn, _params) do
     blogs = Admin.list_blogs()
 
     render(
       conn
-      |> assign(:breadcrumbs, breadcrumbs(conn)),
+      |> assign(:breadcrumbs, breadcrumbs(conn))
+      |> assign(:tabs, tabs(conn)),
       "index.html",
       blogs: blogs
     )
   end
 
   def new(conn, _params) do
-    permitted(conn)
     changeset = Admin.change_blog(%Blog{})
 
     render(
-      conn |> assign(:breadcrumbs, new_blog_breadcrumbs(conn)),
+      conn
+      |> assign(:breadcrumbs, new_blog_breadcrumbs(conn))
+      |> assign(:tabs, tabs(conn)),
       "new.html",
       changeset: changeset
     )
@@ -47,7 +49,8 @@ defmodule RunWeb.Admin.BlogController do
       {:error, %Ecto.Changeset{} = changeset} ->
         render(
           conn
-          |> assign(:breadcrumbs, new_blog_breadcrumbs(conn)),
+          |> assign(:breadcrumbs, new_blog_breadcrumbs(conn))
+          |> assign(:tabs, tabs(conn)),
           "new.html",
           changeset: changeset
         )
@@ -56,11 +59,11 @@ defmodule RunWeb.Admin.BlogController do
 
   def show(conn, %{"id" => id}) do
     blog = Admin.get_blog_with_posts!(id)
-    # render(conn, "show.html", blog: blog)
 
     render(
       conn
-      |> assign(:breadcrumbs, show_blog_breadcrumbs(conn, blog)),
+      |> assign(:breadcrumbs, show_blog_breadcrumbs(conn, blog))
+      |> assign(:tabs, tabs(conn)),
       "show.html",
       blog: blog
     )
@@ -71,7 +74,9 @@ defmodule RunWeb.Admin.BlogController do
     changeset = Admin.change_blog(blog)
 
     render(
-      conn |> assign(:breadcrumbs, edit_blog_breadcrumbs(conn, blog)),
+      conn
+      |> assign(:breadcrumbs, edit_blog_breadcrumbs(conn, blog))
+      |> assign(:tabs, tabs(conn)),
       "edit.html",
       blog: blog,
       changeset: changeset
@@ -89,7 +94,11 @@ defmodule RunWeb.Admin.BlogController do
         |> redirect(to: Routes.admin_blogs_path(conn, :show, blog))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn |> assign(:breadcrumbs, edit_blog_breadcrumbs(conn, blog)), "edit.html",
+        render(
+          conn
+          |> assign(:breadcrumbs, edit_blog_breadcrumbs(conn, blog))
+          |> assign(:tabs, tabs(conn)),
+          "edit.html",
           blog: blog,
           changeset: changeset
         )
@@ -110,7 +119,7 @@ defmodule RunWeb.Admin.BlogController do
       show: true,
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
       links: [
-        %{title: "admin", path: Routes.admin_dashboard_path(conn, :index)},
+        %{title: "admin", path: Routes.admin_path(conn, :index)},
         %{title: "blogs", path: Routes.admin_blogs_path(conn, :index)}
       ],
       current_page: blog.title
@@ -122,7 +131,7 @@ defmodule RunWeb.Admin.BlogController do
       show: true,
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
       links: [
-        %{title: gettext("admin"), path: Routes.admin_dashboard_path(conn, :index)},
+        %{title: gettext("admin"), path: Routes.admin_path(conn, :index)},
         %{title: gettext("blogs"), path: Routes.admin_blogs_path(conn, :index)},
         %{title: blog.title, path: Routes.admin_blogs_path(conn, :show, blog)}
       ],
@@ -134,7 +143,7 @@ defmodule RunWeb.Admin.BlogController do
     %{
       show: true,
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
-      links: [%{title: "admin", path: Routes.admin_dashboard_path(conn, :index)}],
+      links: [%{title: "admin", path: Routes.admin_path(conn, :index)}],
       current_page: gettext("blogs")
     }
   end
@@ -143,9 +152,19 @@ defmodule RunWeb.Admin.BlogController do
     %{
       show: true,
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
-      links: [%{title: "admin", path: Routes.admin_dashboard_path(conn, :index)}],
-      links: [%{title: "blogs", path: Routes.admin_blogs_path(conn, :index)}],
+      links: [
+        %{title: "admin", path: Routes.admin_path(conn, :index)},
+        %{title: "blogs", path: Routes.admin_blogs_path(conn, :index)}
+      ],
       current_page: gettext("new blog")
     }
+  end
+
+  defp tabs(conn) do
+    [
+      %{label: gettext("admin"), link: Routes.admin_path(conn, :index), active: false},
+      %{label: gettext("blogs"), link: Routes.admin_blogs_path(conn, :index), active: true},
+      %{label: gettext("users"), link: Routes.admin_users_path(conn, :index), active: false}
+    ]
   end
 end

@@ -56,13 +56,15 @@ defmodule Run.Uploader.Image do
 
   # Provide a default URL if there hasn't been a file uploaded
   def default_url(version, scope) do
-    case scope do
-      %Run.Accounts.User{} ->
-        random_animal(version)
+    "/images/loeb-og-motion-logo.jpg"
 
-      _ ->
-        random_image(version)
-    end
+    # case scope do
+    #   %Run.Admin.Blog{} ->
+    #     random_animal(version)
+
+    #   _ ->
+    #     random_image(version)
+    # end
   end
 
   defp random_image(version) do

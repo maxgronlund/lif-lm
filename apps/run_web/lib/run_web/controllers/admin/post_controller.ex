@@ -94,7 +94,7 @@ defmodule RunWeb.Admin.PostController do
     %{
       show: true,
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
-      links: [%{title: "admin", path: Routes.admin_dashboard_path(conn, :index)}],
+      links: [%{title: "admin", path: Routes.admin_path(conn, :index)}],
       current_page: gettext("blogs")
     }
   end
@@ -104,7 +104,7 @@ defmodule RunWeb.Admin.PostController do
       show: true,
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
       links: [
-        %{title: "admin", path: Routes.admin_dashboard_path(conn, :index)},
+        %{title: "admin", path: Routes.admin_path(conn, :index)},
         %{title: blog.title, path: Routes.admin_blogs_path(conn, :show, blog)}
       ],
       current_page: gettext("new")
@@ -116,7 +116,7 @@ defmodule RunWeb.Admin.PostController do
       show: true,
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
       links: [
-        %{title: "admin", path: Routes.admin_dashboard_path(conn, :index)},
+        %{title: "admin", path: Routes.admin_path(conn, :index)},
         %{title: blog.title, path: Routes.admin_blogs_path(conn, :show, blog)}
       ],
       current_page: post.title

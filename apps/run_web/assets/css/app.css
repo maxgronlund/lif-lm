@@ -4,9 +4,34 @@
 @import "vendor/flowbite";
 /* This file is for your main application CSS */
 
+html, body {
+    height: 100%;
+}
 
 body {
   font-family: "Inter", sans-serif;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+    margin-bottom: -130px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  margin-top: 28px;
+  /* .push must be the same height as footer */
+    height: 201px;
+}
+.site-footer {
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9em;
 }
 
 /* LiveView specific classes for your customization */
@@ -118,10 +143,11 @@ body {
   }
 }
 
+
 @layer components {
 
   .form-component {
-    @apply relative mx-auto max-w-[800px] overflow-hidden bg-white pt-8 px-8 sm:px-12 md:px-[60px]
+    @apply relative mx-auto overflow-hidden bg-white
   }
 
   .menu-item {
@@ -137,7 +163,7 @@ body {
   }
 
   .page-title {
-    @apply text-black font-semibold text-2xl  
+    @apply text-black font-semibold text-4xl  
   }
 
   .top-link {
@@ -148,8 +174,41 @@ body {
     @apply block text-gray-700 font-bold mb-2
   }
 
+  .img-animate {
+    @apply inline-block 
+    transition 
+    ease-in-out 
+    delay-100
+    duration-1000
+    hover:scale-105  
+  }
+
   .btn {
-    @apply inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out
+    @apply inline-block 
+    px-6 
+    py-2.5 
+    font-medium 
+    text-xs 
+    leading-tight 
+    uppercase 
+    rounded 
+    shadow-md 
+    text-gray-900 
+    bg-gray-200
+    hover:bg-gray-300 
+    active:bg-gray-300
+    focus:bg-gray-300 
+    focus:shadow-lg
+    hover:shadow-lg 
+    focus:outline-none 
+    focus:ring-0 
+    active:shadow-lg 
+    transition 
+    ease-in-out 
+    delay-100
+    duration-150
+    hover:-translate-y-0.5
+    hover:scale-105  
   }
 
   .btn-s {
@@ -160,8 +219,32 @@ body {
     @apply px-6 py-5
   }
 
+  .btn-xl {
+    @apply px-8 py-5
+    font-semibold 
+    text-lg
+  }
+
+  .btn-right {
+    @apply float-right
+  }
+
   .btn-blue {
-    @apply bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:ring-0 active:bg-blue-800
+    @apply 
+    text-white 
+    bg-blue-600 
+    hover:bg-blue-700 
+    active:bg-blue-800
+    focus:bg-blue-700 
+  }
+
+  .btn-green{
+    @apply 
+    text-white 
+    bg-green-600 
+    hover:bg-green-700 
+    active:bg-green-800
+    focus:bg-green-700 
   }
 
   .btn-red {

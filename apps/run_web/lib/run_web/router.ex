@@ -79,14 +79,21 @@ defmodule RunWeb.Router do
     put "/users/reset_password/:token", ResetPasswordController, :update, as: :user_reset_password
   end
 
-  scope "/", RunWeb.User do
+  scope "/users", RunWeb.User do
     pipe_through [:browser, :require_authenticated_user]
-
-    get "/users/settings", SettingsController, :edit, as: :user_settings
-    put "/users/settings", SettingsController, :update, as: :user_settings
 
     get "/users/settings/confirm_email/:token", SettingsController, :confirm_email,
       as: :user_settings
+  end
+
+  scope "/user", RunWeb.User do
+    pipe_through [:browser, :require_authenticated_user]
+
+    get "/settings", SettingsController, :edit, as: :user_settings
+    put "/settings", SettingsController, :update, as: :user_settings
+
+    get "/password", PasswordController, :edit, as: :password
+    put "/password", PasswordController, :update, as: :password
   end
 
   scope "/", RunWeb.User do
@@ -101,21 +108,36 @@ defmodule RunWeb.Router do
 
   scope "/admin", RunWeb.Admin do
     pipe_through [:browser, :require_admin]
-    get "/", DashboardController, :index, as: :admin_dashboard
+    get "/", DashboardController, :index, as: :admin
 
-    resources "/blogs", BlogController, as: :admin_blogs do
+    resources "/blogs", BlogController, as: :admin_blogs, only: [:index, :show, :edit, :update] do
       resources "/posts", PostController
     end
+
+    resources "/users", UsersController, as: :admin_users
+  end
+
+  scope "/admin", RunWeb.Admin do
+    pipe_through [:browser, :require_admin, :require_architect]
+    resources "/blog", BlogController, as: :admin_blog, only: [:new, :create, :delete]
   end
 
   scope "/club", RunWeb.Club do
-    pipe_through [:browser, :require_admin]
+    pipe_through [:browser]
 
-    resources "/memberships", MembershipController, as: :club_membership
+    get "/member/new", MemberController, :new, as: :new_member
+    post "/member", MemberController, :create, as: :new_member
+  end
+
+  scope "/member", RunWeb.Club do
+    pipe_through [:browser, :require_authenticated_user]
+    get "/edit", MemberController, :edit, as: :edit_member
+    get "/", MemberController, :show, as: :show_member
+    put "/", MemberController, :update, as: :update_member
   end
 
   scope "/super", RunWeb.Super do
-    pipe_through [:browser, :require_super_admin]
+    pipe_through [:browser, :require_super]
     get "/", DashboardController, :index, as: :super_dashboard
 
     resources "/users", UserController, as: :super_users

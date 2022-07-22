@@ -23,7 +23,7 @@ defmodule Run.Admin.Blog do
   def changeset(blog, attrs) do
     blog
     |> cast(attrs, [:identifier, :page, :title, :description, :link])
-    |> validate_required([:page, :title, :description])
+    |> validate_required([:title, :description])
     |> unique_constraint(:blogs_page_title_index)
     |> cast_attachments(attrs, [:image])
   end

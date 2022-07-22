@@ -1,0 +1,24 @@
+
+<div class="flex justify-left relative">
+  <div class="shadow-lg bg-white max-w-2xl">
+    <div class="overflow-hidden">
+      <%= img_tag Run.Uploader.Image.url({@blog.image, @blog}, :original), alt: @blog.title, class: "img-animate"%>
+    </div>
+    <div class="p-4 pt-2">
+      <h5 class="text-gray-900 text-xl font-bold mt-2 mb-2"><%= @blog.title %></h5>
+      <span class="
+        bg-green-100 
+        text-green-800 
+        text-xs 
+        font-semibold 
+        mr-2 px-2.5 py-0.5 rounded 
+        dark:bg-green-200 
+        dark:text-green-900"><%= @blog.identifier %></span>
+      <div class="mt-1 mb-10 max-h-36 text-ellipsis overflow-hidden"><%= @blog.description%></div>
+    </div>
+  </div>
+  <div class="absolute bottom-2 ml-2">
+      <%= link gettext("Edit"), to: Routes.admin_blogs_path(@conn, :show, @blog) , class: "btn float-right" %>
+  </div>
+</div>
+

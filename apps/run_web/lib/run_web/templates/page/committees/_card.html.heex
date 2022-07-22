@@ -1,0 +1,15 @@
+
+<div class="flex justify-left m-2 relative">
+  <div class="rounded-lg shadow-lg bg-white max-w-sm">
+    <div class="overflow-hidden">
+      <%= img_tag Run.Uploader.Image.url({@post.image, @post}, :post_card), alt: @post.title, class: "img-animate"%>
+    </div>
+    <div class="p-4 pt-2">
+      <h5 class="text-gray-900 text-xl font-bold mt-2 mb-2"><%= @post.title %></h5>
+      <div class="mt-1 mb-10"><%= raw(@post.body)%></div>
+    </div>
+  </div>
+  <div class="absolute bottom-2 ml-2">
+      <%= link gettext("Read more"), to: @post.link , class: "btn" %>
+  </div>
+</div>

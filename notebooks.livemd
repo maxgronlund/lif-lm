@@ -11,3 +11,30 @@ blog_id = Admin.get_blog_with_posts_by_identifier!("landidsdng_pasdfge").id
 ```elixir
 Admin.get_posts_by_page(blog_id, "some tittle")
 ```
+
+```elixir
+import Ecto.Query, warn: false
+alias Run.Repo
+
+alias Run.Admin.Blog
+alias Run.Admin.Post
+
+query = from(p in Blog, where: p.title == ^"sign-up")
+
+# Repo.delete_all(query)
+```
+
+## Users
+
+```elixir
+alias Run.Accounts.User
+
+alias Run.Repo
+
+Repo.all(User)
+```
+
+```elixir
+Repo.get!(User, "f054d019-9dbe-484b-b1ee-3afe0e255fbb")
+|> Repo.delete()
+```

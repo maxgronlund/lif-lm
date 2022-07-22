@@ -1,0 +1,25 @@
+<%= if @post.link do %>
+  <%= link to: @post.link, class: "flex justify-center m-2 relative" do%>
+    <div class="shadow-lg bg-white max-w-2xl">
+      <div class="overflow-hidden">
+        <%= img_tag Run.Uploader.Image.url({@post.image, @post}, :original), alt: @post.title, class: "img-animate"%>
+      </div>
+      <div class="p-4 pt-2">
+        <h5 class="text-gray-900 text-xl font-bold mt-2 mb-2"><%= @post.title %></h5>
+        <div class="mt-1 mb-12"><%= @post.body%></div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="flex justify-center m-2 relative">
+    <div class="shadow-lg bg-white max-w-2xl">
+      <div class="overflow-hidden">
+        <%= img_tag Run.Uploader.Image.url({@post.image, @post}, :original), alt: @post.title, class: "img-animate"%>
+      </div>
+      <div class="p-4 pt-2">
+        <h5 class="text-gray-900 text-xl font-bold mt-2 mb-2"><%= @post.title %></h5>
+        <div class="mt-1 mb-12"><%= @post.body%></div>
+      </div>
+    </div>
+  </div>
+<% end %>

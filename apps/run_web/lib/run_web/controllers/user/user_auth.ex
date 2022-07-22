@@ -148,8 +148,8 @@ defmodule RunWeb.UserAuth do
 
   defp signed_in_path(_conn), do: "/"
 
-  def require_super_admin(conn, _opts) do
-    if super_admin?(conn) do
+  def require_super(conn, _opts) do
+    if super?(conn.assigns[:current_user]) do
       conn
     else
       conn
@@ -159,26 +159,38 @@ defmodule RunWeb.UserAuth do
     end
   end
 
-  defp super_admin?(_conn) do
-    true
+  def require_architect(conn, _opts) do
+    if architect?(conn.assigns[:current_user]) do
+      conn
+    else
+      conn
+      |> put_flash(:error, dgettext("errors", "Permission denied"))
+      |> redirect(to: "/")
+      |> halt()
+    end
   end
 
   def require_admin(conn, _opts) do
     if admin?(conn.assigns[:current_user]) do
       conn
     else
-      permissio_denied(conn)
+      permission_denied(conn)
     end
   end
 
-  defp permissio_denied(conn) do
+  defp permission_denied(conn) do
     conn
     |> put_flash(:error, dgettext("errors", "Permission denied"))
     |> redirect(to: "/")
     |> halt()
   end
 
-  @spec admin?(User.t() | nil) :: true | false
   defp admin?(nil), do: false
   defp admin?(user), do: user.admin
+
+  defp architect?(nil), do: false
+  defp architect?(user), do: user.architect
+
+  defp super?(nil), do: false
+  defp super?(user), do: user.super
 end

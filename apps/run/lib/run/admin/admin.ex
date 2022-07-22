@@ -7,6 +7,21 @@ defmodule Run.Admin do
   alias Run.Repo
 
   alias Run.Admin.Blog
+  alias Run.Accounts.User
+
+  def list_users do
+    Repo.all(User)
+  end
+
+  def get_user!(id), do: Repo.get!(User, id)
+
+  def delete_user(%User{} = user) do
+    Repo.delete(user)
+  end
+
+  def delete_user(params) do
+    IO.inspect(params)
+  end
 
   @doc """
   Returns the list of blogs.
@@ -50,7 +65,14 @@ defmodule Run.Admin do
 
     case Repo.one(query) do
       nil ->
-        {:ok, blog} = create_blog(%{page: identifier, title: identifier, description: identifier})
+        {:ok, blog} =
+          create_blog(%{
+            page: identifier,
+            title: identifier,
+            description: identifier,
+            identifier: identifier
+          })
+
         blog
 
       blog ->

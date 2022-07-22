@@ -260,15 +260,15 @@ defmodule Run.AccountsTest do
       %{user: user_fixture()}
     end
 
-    test "validates password", %{user: user} do
+    test "validates password confirmation", %{user: user} do
       {:error, changeset} =
         Accounts.update_user_password(user, valid_user_password(), %{
-          password: "not valid",
-          password_confirmation: "another"
+          password: "match 123457890",
+          password_confirmation: "match 123457890 no match"
         })
 
       assert %{
-               password: ["Must be a minimum of 12 and a maximum of 72 characters"],
+               # password: ["Must be a minimum of 12 and a maximum of 72 characters"],
                password_confirmation: ["does not match password"]
              } = errors_on(changeset)
     end

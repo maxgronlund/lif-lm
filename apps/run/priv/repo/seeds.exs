@@ -30,7 +30,7 @@ super_admin =
   end
 
 pages =
-  ~w[landing_page about_page become_member_page training_page contact_page calender_page races_page ]
+  ~w[landing_page about_page become_member_page training_page contact_page calendar_page races_page ]
 
 for page <- pages do
   query = from b in Run.Admin.Blog, where: b.page == ^page

@@ -2,10 +2,10 @@ defmodule RunWeb.BlogControllerTest do
   use RunWeb.ConnCase
 
   import Run.AdminFixtures
-  import Run.AccountsFixtures
+  # import Run.AccountsFixtures
 
-  alias RunWeb.UserAuth
-  alias Run.Accounts
+  # alias RunWeb.UserAuth
+  # alias Run.Accounts
 
   @update_attrs %{
     description: "some updated description",

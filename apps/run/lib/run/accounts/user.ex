@@ -11,6 +11,13 @@ defmodule Run.Accounts.User do
   schema "users" do
     field :email, :string
     field :username, :string
+    field :first_name, :string
+    field :last_name, :string
+    field :street_and_house_nr, :string
+    field :zip_code, :string
+    field :city, :string
+    field :country, :string
+    field :date_of_birth, :date
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
@@ -18,9 +25,22 @@ defmodule Run.Accounts.User do
     field :admin, :boolean, default: false
     field :super, :boolean, default: false, redact: true
     field :architect, :boolean, default: false, redact: true
+    has_many :memberships, Run.Club.Membership
 
     timestamps()
   end
+
+  @address_fields [
+    :first_name,
+    :last_name,
+    :street_and_house_nr,
+    :zip_code,
+    :city,
+    :country,
+    :date_of_birth
+  ]
+
+  @default_fields [:email, :username]
 
   @doc """
   A user changeset for registration.
@@ -41,10 +61,19 @@ defmodule Run.Accounts.User do
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:email, :username, :password])
+    |> cast(attrs, @default_fields ++ [:password] ++ @address_fields)
     |> validate_required([:username])
     |> validate_email()
     |> validate_password(opts)
+    |> unique_constraint(:username)
+    |> cast_attachments(attrs, [:avatar])
+  end
+
+  def update_changeset(user, attrs, opts \\ []) do
+    user
+    |> cast(attrs, @default_fields ++ @address_fields)
+    |> validate_required([:username])
+    |> validate_email()
     |> unique_constraint(:username)
     |> cast_attachments(attrs, [:avatar])
   end
@@ -55,8 +84,6 @@ defmodule Run.Accounts.User do
   end
 
   def super_permission_changeset(user, attrs, _opts \\ []) do
-    IO.inspect(attrs)
-
     user
     |> cast(attrs, [:admin, :super, :architect])
   end
@@ -75,6 +102,10 @@ defmodule Run.Accounts.User do
   defp validate_password(changeset, opts) do
     changeset
     |> validate_required([:password])
+    |> validate_confirmation(
+      :password,
+      message: dgettext("errors", "does not match password")
+    )
     |> validate_length(:password,
       min: 12,
       max: 72,
@@ -131,7 +162,6 @@ defmodule Run.Accounts.User do
   def password_changeset(user, attrs, opts \\ []) do
     user
     |> cast(attrs, [:password])
-    |> validate_confirmation(:password, message: dgettext("errors", "does not match password"))
     |> validate_password(opts)
   end
 

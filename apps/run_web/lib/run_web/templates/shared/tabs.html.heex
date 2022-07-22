@@ -1,0 +1,13 @@
+<div class="md:container md:mx-auto mt-8 mb-4">
+  <ul class="flex flex-wrap text-basis font-medium text-center text-black border-b border-gray-200">
+    <%= for tab <- @tabs do %>
+      <li class="mr-2">
+        <%= if tab.active do %>
+          <a class="inline-block p-4 text-white bg-gray-500 rounded-t-lg"><%= tab.label %></a>
+        <% else %>
+          <%= link tab.label, to: tab.link , class: "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-100"%>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

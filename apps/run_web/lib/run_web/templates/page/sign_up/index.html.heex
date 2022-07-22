@@ -1,0 +1,19 @@
+<%= render RunWeb.SharedView, "blog_title_and_body", %{blog: @blog} %>
+<%= if !@current_user do %>
+  <div class="container mx-auto">
+    <%= 
+      link gettext("Register"), 
+      to: Routes.new_member_path(@conn, :new), 
+      class: "btn btn-xl btn-green" 
+    %>
+  </div>
+<% end %>
+
+<div class="container md:mx-auto mt-4 p-4">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <%= render RunWeb.SharedView, "post_card_no_link.html", %{post: @grant_races} %>
+    <%= render RunWeb.SharedView, "post_card_no_link.html", %{post: @club_clothes} %>
+    <%= render RunWeb.SharedView, "post_card_no_link.html", %{post: @events} %>
+  </div>
+</div>
+

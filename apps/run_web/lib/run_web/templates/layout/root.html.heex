@@ -12,12 +12,17 @@
 
   </head>
   <body>
+    <div class="page-wrap">
   
-    <%= render "_navbar.html", assigns %>
-    <%= render "_breadcrumbs.html", assigns %>
-    <main class="mt-32">    
-      <%= @inner_content %>
-    </main>
+      <%= render "_navbar.html", assigns %>
+      <%= render "_breadcrumbs.html", assigns %>
+      <main class="mt-32">    
+        <%= @inner_content %>
+      </main>
+     </div>
+     <%= render "_footer.html", assigns %>
+   
+
    	<script>
       //Javascript to toggle the menu
       document.getElementById('nav-toggle').onclick = function(){
