@@ -20,6 +20,8 @@ defmodule RunWeb.Club.MemberController do
   end
 
   def create(conn, %{"user" => user_params}) do
+    IO.inspect("creating a user")
+
     case Club.register_member(user_params) do
       {:ok, user} ->
         {:ok, _} =
@@ -29,8 +31,11 @@ defmodule RunWeb.Club.MemberController do
           )
 
         conn
+        |> put_session(:user_return_to, Routes.checkout_path(conn, :new))
         |> put_flash(:info, gettext("Account created"))
-        |> redirect(to: Routes.user_session_path(conn, :new))
+        |> UserAuth.log_in_user(user)
+
+      # |> redirect(to: Routes.user_session_path(conn, :new))
 
       # |> put_flash(:info, "User created successfully.")
       # |> UserAuth.log_in_user(user)
