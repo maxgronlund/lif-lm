@@ -24,7 +24,7 @@ defmodule RunWeb.MixProject do
   def application do
     [
       mod: {RunWeb.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :stripity_stripe]
     ]
   end
 
@@ -58,7 +58,8 @@ defmodule RunWeb.MixProject do
       {:ex_aws_s3, "~> 2.3"},
       {:poison, "~> 3.1"},
       {:hackney, "~> 1.16"},
-      {:sweet_xml, "~> 0.7.3"}
+      {:sweet_xml, "~> 0.7.3"},
+      {:stripity_stripe, "~> 2.0"}
     ]
   end
 

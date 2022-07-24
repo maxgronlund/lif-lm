@@ -136,6 +136,14 @@ defmodule RunWeb.Router do
     put "/", MemberController, :update, as: :update_member
   end
 
+  scope "/payment", RunWeb.Payment do
+    pipe_through [:browser, :require_authenticated_user]
+
+    get "/checkout", CheckoutController, :new, as: :checkout
+    get "/completed", CompletedController, :show, as: :payment_completed
+    get "error", ErrorController, :show, as: :payment_error
+  end
+
   scope "/super", RunWeb.Super do
     pipe_through [:browser, :require_super]
     get "/", DashboardController, :index, as: :super_dashboard
