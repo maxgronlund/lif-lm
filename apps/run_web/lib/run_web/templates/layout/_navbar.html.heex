@@ -1,62 +1,20 @@
-<!--
+
 <nav class="fixed w-full top-0 pt-4 px-2 sm:px-4 py-2.5 bg-red-600 h-20 z-40">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
     <%= link to: Routes.landing_page_path(@conn, :index), class: "flex items-center" do%>
         <img src={Routes.static_path(@conn, "/images/lif-logo.svg")} class="mr-3 h-12" alt="LIF Logo">
-        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">LIF Løb og Motion </span>
+        <span class="hidden lg:block  sm:self-center text-xl font-semibold whitespace-nowrap text-white">LIF Løb og Motion </span>
     <% end %>
-    <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
-      <span class="sr-only">Open main menu</span>
-      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto z-30" id="mobile-menu">
-      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0">
-        <%= if @current_user && @current_user.admin do %>
-          <li>
-            <%= link gettext("Admin"), to: Routes.admin_path(@conn, :index), class: "menu-item" %> 
-          </li>
-        <% end %>
-				<%= if @current_user do %>
-					<li>
-						<%= link gettext("Settings"), to: Routes.user_settings_path(@conn, :edit), class: "menu-item"%>
-					</li>
-					<li>
-					  <%= link gettext("Log out"), to: Routes.user_session_path(@conn, :delete), method: :delete, class: "menu-item" %>
-					</li>
-				<% else %>
-					<%= link gettext("Log in"), to: Routes.user_session_path(@conn, :new), class: "menu-item" %>
-					<%= link gettext("Register"), to: Routes.user_registration_path(@conn, :new), class: "menu-item" %>
-				<% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
--->
-<nav class="fixed w-full top-0 pt-4 px-2 sm:px-4 py-2.5 bg-red-600 h-20 z-40">
-  <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <%= link to: Routes.landing_page_path(@conn, :index), class: "flex items-center" do%>
-        <img src={Routes.static_path(@conn, "/images/lif-logo.svg")} class="mr-3 h-12" alt="LIF Logo">
-        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">LIF Løb og Motion </span>
-    <% end %>
-
-
-    <div id="dropdownDefault" data-dropdown-toggle="dropdown">
-      <%= if @current_user do %>
-        <div class="grid grid-cols-2 gap-4">
-          <%= img_tag Run.Uploader.Image.url({@current_user.avatar, @current_user}, :avatar),  class: "h-10 w-10 rounded-full"%> 
-          <svg class="w-8 h-8 mt-1 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-        </div>
-      <% else %>
-        <div class="static">
-          <%= link gettext("Log in"), to: Routes.user_session_path(@conn, :new), class: "block py-2 hover:bg-red-600 text-white inline-block mr-3" %>
-				  <%= link gettext("Register"), to: Routes.new_member_path(@conn, :new), class: "btn btn-green pt-3 innline-block" %>
-        </div>
-      <% end %>
+    <%= if @current_user do %>
+     <div id="dropdownDefault" data-dropdown-toggle="dropdown">
+      <div class="grid grid-cols-2 gap-4">
+        <%= img_tag Run.Uploader.Image.url({@current_user.avatar, @current_user}, :avatar),  class: "h-10 w-10 rounded-full"%> 
+        <svg class="w-8 h-8 mt-1 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </div>
     </div>
     <!-- Dropdown menu -->
     <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-        <%= if @current_user do %>
           <%= if @current_user.admin do %>
             <li>
               <%= link gettext("Admin"), to: Routes.admin_path(@conn, :index), class: "block py-2 px-4 hover:bg-red-600 hover:text-white"  %>
@@ -72,14 +30,15 @@
 					<li>
 					  <%= link gettext("Log out"), to: Routes.user_session_path(@conn, :delete), method: :delete, class: "block py-2 px-4 hover:bg-red-600 hover:text-white" %>
 					</li>
-				<% else %>
-					<%= link gettext("Log in"), to: Routes.user_session_path(@conn, :new), class: "block py-2 px-4 hover:bg-red-600 hover:text-white" %>
-					<%= link gettext("Register"), to: Routes.user_registration_path(@conn, :new), class: "block py-2 px-4 hover:bg-red-600 hover:text-white" %>
-				<% end %>
-        
-         
         </ul>
     </div>
+
+    <% else %>
+      <div class="static">
+        <%= link gettext("Log in"), to: Routes.user_session_path(@conn, :new), class: "block py-2 hover:bg-red-600 text-white inline-block mr-3" %>
+        <%= link gettext("Register"), to: Routes.new_member_path(@conn, :new), class: "btn btn-green pt-3 inline-block" %>
+      </div>
+    <% end %>
   </div>
 
 

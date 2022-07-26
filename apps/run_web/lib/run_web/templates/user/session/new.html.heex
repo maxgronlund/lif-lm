@@ -1,8 +1,7 @@
-<div class="md:container md:mx-auto mt-8">
-  <div class="mt-32 page-header page-title"><%= gettext("Log in") %></div>
-
+<div class="md:container md:mx-auto ">
   <div class="w-full px-4">
-    <div class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-14 px-8 sm:px-12 md:px-[60px]" data-wow-delay=".15s" style="visibility: visible; animation-delay: 0.15s;">
+    <div class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white  px-8 sm:px-12 md:px-[60px]" data-wow-delay=".15s" style="visibility: visible; animation-delay: 0.15s;">
+      <div class="page-header page-title mb-4"><%= gettext("Log in") %></div>
       <.form let={f} for={@conn} action={Routes.user_session_path(@conn, :create)} as={:user}>
         <%= if @error_message do %>
           <div class="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3 rounded-md mb-6">
@@ -31,7 +30,7 @@
       </.form>
 
       <p>
-        <%= link gettext("Register"), to: Routes.user_registration_path(@conn, :new), class: "link" %> |
+        <%= link gettext("Register"), to: Routes.new_member_path(@conn, :new), class: "link" %> |
         <%= link gettext("Forgot your password?"), to: Routes.user_reset_password_path(@conn, :new), class: "link" %>
       </p>
     </div>
