@@ -27,6 +27,7 @@
               <%= user.email %>
             </td>
             <td class="py-4 px-6 text-right">
+              <%= link gettext("Show"), to: Routes.admin_users_path(@conn, :show, user), class: "btn" %>
               <%= link gettext("Delete"), to: Routes.admin_users_path(@conn, :delete, user), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
             </td>
           </tr>

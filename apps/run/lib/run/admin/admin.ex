@@ -13,7 +13,13 @@ defmodule Run.Admin do
     Repo.all(User)
   end
 
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id) do
+    Repo.one(
+      from user in User,
+        where: user.id == ^id,
+        preload: [:memberships]
+    )
+  end
 
   def delete_user(%User{} = user) do
     Repo.delete(user)

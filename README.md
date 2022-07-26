@@ -32,3 +32,6 @@ https://flowbite.com/docs/getting-started/quickstart/
 - Aplication name: limitless-cove-09957
 - heroku run "POOL_SIZE=2 mix hello.task"
 
+
+
+./ngrok http 4000

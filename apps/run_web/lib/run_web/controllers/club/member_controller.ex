@@ -20,8 +20,6 @@ defmodule RunWeb.Club.MemberController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    IO.inspect("creating a user")
-
     case Club.register_member(user_params) do
       {:ok, user} ->
         {:ok, _} =

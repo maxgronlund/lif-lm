@@ -19,3 +19,5 @@ mix phx.gen.html Admin Post posts title:string body:text author:string blog_id:r
 
 
 mix phx.gen.html Club Member members user_id:references:users start:date end:date type:string
+
+mix phx.gen.html PaymentGateway Checkout checkouts email name amount:integer currency payment_intent_id user_id:references:users

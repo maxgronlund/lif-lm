@@ -7,17 +7,28 @@ defmodule Run.Club.Membership do
   schema "memberships" do
     field :end, :date
     field :start, :date
-    field :type, :string
-    # field :user_id, :binary_id
+    field :amount, :integer
+    field :currency, :string, default: "dkk"
+    field :type, :string, default: "membership one year"
+    field :state, :string, default: "pending"
+
     belongs_to :user, Run.Accounts.User
 
     timestamps()
   end
 
+  @attrs [
+    :start,
+    :type,
+    :amount,
+    :currency,
+    :user_id
+  ]
+
   @doc false
   def changeset(membership, attrs) do
     membership
-    |> cast(attrs, [:start, :end, :type])
-    |> validate_required([:start, :end, :type])
+    |> cast(attrs, @attrs ++ [:end, :type, :state])
+    |> validate_required(@attrs)
   end
 end

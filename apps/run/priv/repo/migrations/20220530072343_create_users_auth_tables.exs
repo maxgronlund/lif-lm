@@ -14,6 +14,13 @@ defmodule Run.Repo.Migrations.CreateUsersAuthTables do
       add :admin, :boolean, default: false
       add :super, :boolean, default: false
       add :architect, :boolean, default: false
+      add :first_name, :string
+      add :last_name, :string
+      add :street_and_house_nr, :string
+      add :zip_code, :string
+      add :city, :string
+      add :country, :string, default: "Danmark"
+      add :date_of_birth, :date
       timestamps()
     end
 

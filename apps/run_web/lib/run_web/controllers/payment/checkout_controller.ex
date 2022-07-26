@@ -11,22 +11,45 @@ defmodule RunWeb.Payment.CheckoutController do
     render(conn, "index.html", checkouts: checkouts)
   end
 
+  defp success_url(membership_id) do
+    "https://77ca-80-208-67-148.eu.ngrok.io/payment/completed?id=" <> membership_id
+  end
+
+  defp error_url(membership_id) do
+    "https://77ca-80-208-67-148.eu.ngrok.io/payment/error?id=" <> membership_id
+  end
+
   def new(conn, _params) do
     # {:ok, setup_intent} = Stripe.SetupIntent.create(%{})
     # changeset = PaymentGateway.change_checkout(%Checkout{payment_intent_id: setup_intent.id})
 
     current_user = conn.assigns[:current_user]
 
+    # todo create a membership here
+    # and pass it through to payment gate way so it
+    # can be completed when the payment is done
+
+    {:ok, membership} =
+      Run.Club.create_membership(%{
+        start: Timex.today(),
+        amount: 500,
+        user_id: current_user.id
+      })
+      |> IO.inspect()
+
     {:ok, session} =
       Stripe.Session.create(%{
-        success_url: "https://77ca-80-208-67-148.eu.ngrok.io/success",
-        cancel_url: "https://77ca-80-208-67-148.eu.ngrok.io/cancel",
+        success_url: success_url(membership.id),
+        cancel_url: error_url(membership.id),
         customer_email: current_user.email,
         line_items: [
           %{price: "price_1LOQ6IEAauiBXiB4CSQwnkBq", quantity: 1}
         ],
         mode: "payment",
-        metadata: %{user_id: current_user.email}
+        metadata: %{
+          user_id: current_user.id,
+          membership_id: membership.id
+        }
       })
 
     conn
@@ -34,6 +57,10 @@ defmodule RunWeb.Payment.CheckoutController do
 
     # changeset = PaymentGateway.change_checkout(%Checkout{})
     # render(conn, "new.html", changeset: changeset)
+  end
+
+  defp full_name(user) do
+    user.first_name <> " " <> user.last_name
   end
 
   def create(conn, %{"checkout" => checkout_params}) do

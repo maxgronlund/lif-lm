@@ -15,6 +15,18 @@ defmodule RunWeb.Admin.UsersController do
     )
   end
 
+  def show(conn, %{"id" => user_id}) do
+    user = Admin.get_user!(user_id)
+
+    render(
+      conn
+      |> assign(:breadcrumbs, breadcrumbs(conn))
+      |> assign(:tabs, tabs(conn)),
+      "show.html",
+      user: user
+    )
+  end
+
   def delete(conn, %{"id" => id}) do
     user = Admin.get_user!(id)
     {:ok, _user} = Admin.delete_user(user)

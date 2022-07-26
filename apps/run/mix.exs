@@ -50,7 +50,8 @@ defmodule Run.MixProject do
       {:ex_aws_s3, "~> 2.3"},
       {:poison, "~> 3.1"},
       {:sweet_xml, "~> 0.7.3"},
-      {:slugify, "~> 1.3"}
+      {:slugify, "~> 1.3"},
+      {:timex, "~> 3.7"}
     ]
   end
 

@@ -1,0 +1,45 @@
+<div class="md:container md:mx-auto mt-8">
+  <div class="relative pt-8 mb-8 page-header page-title"><%= @user.email%></div>
+  <%= render RunWeb.SharedView, "tabs.html", %{tabs: @tabs} %>
+</div>
+
+
+<div class="overflow-x-auto relative">
+  <table class="w-full text-sm text-left text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th scope="col" class="py-3 px-6">
+          <%= gettext("Start") %>
+        </th>
+        <th scope="col" class="py-3 px-6">
+          <%= gettext("End") %> 
+        </th>
+        <th scope="col" class="py-3 px-6">
+          <%= gettext("Valid") %> 
+        </th>
+        <th scope="col" class="py-3 px-6">
+          <span class="sr-only">Edit</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for membership <- @user.memberships do %>
+        <tr class="bg-white border-b hover:bg-gray-50">
+          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+            <%= format_date(membership.start) %>
+          </th>
+          <td class="py-4 px-6">
+            <%= format_date(membership.end) %>
+          </td>
+          <td class="py-4 px-6">
+            <%= valid?(membership) %>
+          </td>
+          <td class="py-4 px-6 text-right">
+            <%#= link gettext("Show"), to: Routes.admin_users_path(@conn, :show, user), class: "btn" %>
+            <%# = link gettext("Delete"), to: Routes.admin_users_path(@conn, :delete, user), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

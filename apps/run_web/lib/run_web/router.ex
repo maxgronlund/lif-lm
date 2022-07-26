@@ -115,6 +115,7 @@ defmodule RunWeb.Router do
     end
 
     resources "/users", UsersController, as: :admin_users
+    resources "/memberships", MembershipController
   end
 
   scope "/admin", RunWeb.Admin do

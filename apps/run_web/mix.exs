@@ -59,7 +59,8 @@ defmodule RunWeb.MixProject do
       {:poison, "~> 3.1"},
       {:hackney, "~> 1.16"},
       {:sweet_xml, "~> 0.7.3"},
-      {:stripity_stripe, "~> 2.0"}
+      {:stripity_stripe, "~> 2.0"},
+      {:timex, "~> 3.7"}
     ]
   end
 
