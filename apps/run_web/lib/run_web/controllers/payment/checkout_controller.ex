@@ -6,10 +6,10 @@ defmodule RunWeb.Payment.CheckoutController do
 
   plug :breadcrumbs
 
-  def index(conn, _params) do
-    checkouts = PaymentGateway.list_checkouts()
-    render(conn, "index.html", checkouts: checkouts)
-  end
+  # def index(conn, _params) do
+  #   checkouts = PaymentGateway.list_checkouts()
+  #   render(conn, "index.html", checkouts: checkouts)
+  # end
 
   defp success_url(membership_id) do
     "https://77ca-80-208-67-148.eu.ngrok.io/payment/completed?id=" <> membership_id
@@ -20,22 +20,14 @@ defmodule RunWeb.Payment.CheckoutController do
   end
 
   def new(conn, _params) do
-    # {:ok, setup_intent} = Stripe.SetupIntent.create(%{})
-    # changeset = PaymentGateway.change_checkout(%Checkout{payment_intent_id: setup_intent.id})
-
     current_user = conn.assigns[:current_user]
-
-    # todo create a membership here
-    # and pass it through to payment gate way so it
-    # can be completed when the payment is done
 
     {:ok, membership} =
       Run.Club.create_membership(%{
-        start: Timex.today(),
+        start_date: Timex.today(),
         amount: 500,
         user_id: current_user.id
       })
-      |> IO.inspect()
 
     {:ok, session} =
       Stripe.Session.create(%{
@@ -54,60 +46,57 @@ defmodule RunWeb.Payment.CheckoutController do
 
     conn
     |> redirect(external: session.url)
-
-    # changeset = PaymentGateway.change_checkout(%Checkout{})
-    # render(conn, "new.html", changeset: changeset)
   end
 
-  defp full_name(user) do
-    user.first_name <> " " <> user.last_name
-  end
+  # defp full_name(user) do
+  #   user.first_name <> " " <> user.last_name
+  # end
 
-  def create(conn, %{"checkout" => checkout_params}) do
-    case PaymentGateway.create_checkout(checkout_params) do
-      {:ok, checkout} ->
-        conn
-        |> put_flash(:info, "Checkout created successfully.")
-        |> redirect(to: Routes.checkout_path(conn, :show, checkout))
+  # def create(conn, %{"checkout" => checkout_params}) do
+  #   case PaymentGateway.create_checkout(checkout_params) do
+  #     {:ok, checkout} ->
+  #       conn
+  #       |> put_flash(:info, "Checkout created successfully.")
+  #       |> redirect(to: Routes.checkout_path(conn, :show, checkout))
 
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
-    end
-  end
+  #     {:error, %Ecto.Changeset{} = changeset} ->
+  #       render(conn, "new.html", changeset: changeset)
+  #   end
+  # end
 
-  def show(conn, %{"id" => id}) do
-    checkout = PaymentGateway.get_checkout!(id)
-    render(conn, "show.html", checkout: checkout)
-  end
+  # def show(conn, %{"id" => id}) do
+  #   checkout = PaymentGateway.get_checkout!(id)
+  #   render(conn, "show.html", checkout: checkout)
+  # end
 
-  def edit(conn, %{"id" => id}) do
-    checkout = PaymentGateway.get_checkout!(id)
-    changeset = PaymentGateway.change_checkout(checkout)
-    render(conn, "edit.html", checkout: checkout, changeset: changeset)
-  end
+  # def edit(conn, %{"id" => id}) do
+  #   checkout = PaymentGateway.get_checkout!(id)
+  #   changeset = PaymentGateway.change_checkout(checkout)
+  #   render(conn, "edit.html", checkout: checkout, changeset: changeset)
+  # end
 
-  def update(conn, %{"id" => id, "checkout" => checkout_params}) do
-    checkout = PaymentGateway.get_checkout!(id)
+  # def update(conn, %{"id" => id, "checkout" => checkout_params}) do
+  #   checkout = PaymentGateway.get_checkout!(id)
 
-    case PaymentGateway.update_checkout(checkout, checkout_params) do
-      {:ok, checkout} ->
-        conn
-        |> put_flash(:info, "Checkout updated successfully.")
-        |> redirect(to: Routes.checkout_path(conn, :show, checkout))
+  #   case PaymentGateway.update_checkout(checkout, checkout_params) do
+  #     {:ok, checkout} ->
+  #       conn
+  #       |> put_flash(:info, "Checkout updated successfully.")
+  #       |> redirect(to: Routes.checkout_path(conn, :show, checkout))
 
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", checkout: checkout, changeset: changeset)
-    end
-  end
+  #     {:error, %Ecto.Changeset{} = changeset} ->
+  #       render(conn, "edit.html", checkout: checkout, changeset: changeset)
+  #   end
+  # end
 
-  def delete(conn, %{"id" => id}) do
-    checkout = PaymentGateway.get_checkout!(id)
-    {:ok, _checkout} = PaymentGateway.delete_checkout(checkout)
+  # def delete(conn, %{"id" => id}) do
+  #   checkout = PaymentGateway.get_checkout!(id)
+  #   {:ok, _checkout} = PaymentGateway.delete_checkout(checkout)
 
-    conn
-    |> put_flash(:info, "Checkout deleted successfully.")
-    |> redirect(to: Routes.checkout_path(conn, :index))
-  end
+  #   conn
+  #   |> put_flash(:info, "Checkout deleted successfully.")
+  #   |> redirect(to: Routes.checkout_path(conn, :index))
+  # end
 
   defp breadcrumbs(conn, _opts) do
     conn |> assign(:breadcrumbs, %{show: false})

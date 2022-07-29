@@ -1,4 +1,4 @@
-<div class="md:container md:mx-auto mt-8">
+<div class="md:container md:mx-auto mt-8 px-2">
   <div class="relative pt-8 mb-8 page-header page-title"><%= gettext("Users")%></div>
   <%= render RunWeb.SharedView, "tabs.html", %{tabs: @tabs} %>
 
@@ -13,6 +13,9 @@
             <%= gettext("Email") %> 
           </th>
           <th scope="col" class="py-3 px-6">
+            <%= gettext("Valid member") %> 
+          </th>
+          <th scope="col" class="py-3 px-6">
             <span class="sr-only">Edit</span>
           </th>
         </tr>
@@ -25,6 +28,9 @@
             </th>
             <td class="py-4 px-6">
               <%= user.email %>
+            </td>
+            <td class="py-4 px-6">
+              <%= render RunWeb.SharedView, "valid_member.html", %{valid_member: user.valid_member} %>
             </td>
             <td class="py-4 px-6 text-right">
               <%= link gettext("Show"), to: Routes.admin_users_path(@conn, :show, user), class: "btn" %>

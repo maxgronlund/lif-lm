@@ -20,7 +20,7 @@ defmodule RunWeb.Admin.UsersController do
 
     render(
       conn
-      |> assign(:breadcrumbs, breadcrumbs(conn))
+      |> assign(:breadcrumbs, breadcrumbs(conn, user))
       |> assign(:tabs, tabs(conn)),
       "show.html",
       user: user
@@ -42,6 +42,18 @@ defmodule RunWeb.Admin.UsersController do
       root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
       links: [%{title: gettext("admin"), path: Routes.admin_path(conn, :index)}],
       current_page: gettext("users")
+    }
+  end
+
+  defp breadcrumbs(conn, user) do
+    %{
+      show: true,
+      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      links: [
+        %{title: gettext("admin"), path: Routes.admin_path(conn, :index)},
+        %{title: gettext("users"), path: Routes.admin_users_path(conn, :index)}
+      ],
+      current_page: user.username
     }
   end
 

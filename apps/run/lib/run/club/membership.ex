@@ -5,8 +5,8 @@ defmodule Run.Club.Membership do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "memberships" do
-    field :end, :date
-    field :start, :date
+    field :start_date, :date
+    field :end_date, :date
     field :amount, :integer
     field :currency, :string, default: "dkk"
     field :type, :string, default: "membership one year"
@@ -17,8 +17,8 @@ defmodule Run.Club.Membership do
     timestamps()
   end
 
-  @attrs [
-    :start,
+  @required_attrs [
+    :start_date,
     :type,
     :amount,
     :currency,
@@ -28,7 +28,14 @@ defmodule Run.Club.Membership do
   @doc false
   def changeset(membership, attrs) do
     membership
-    |> cast(attrs, @attrs ++ [:end, :type, :state])
-    |> validate_required(@attrs)
+    |> cast(attrs, @required_attrs ++ [:end_date, :type, :state])
+    |> validate_required(@required_attrs)
+  end
+
+  def expire_changeset(membership) do
+    attrs = %{state: "expired"}
+
+    membership
+    |> cast(attrs, [:state])
   end
 end

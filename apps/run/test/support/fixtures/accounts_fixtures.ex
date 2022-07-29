@@ -13,7 +13,8 @@ defmodule Run.AccountsFixtures do
       email: unique_user_email(),
       password: valid_user_password(),
       password_confirmation: valid_user_password(),
-      username: unique_username()
+      username: unique_username(),
+      valid_member: true
     })
   end
 

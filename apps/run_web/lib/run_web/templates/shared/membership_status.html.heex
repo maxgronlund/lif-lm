@@ -1,0 +1,55 @@
+
+<%= case @membership.state do %>
+
+  <% "pending" -> %>
+    <span class=
+      "bg-yellow-100
+      text-yellow-800 
+      text-xs 
+      font-semibold 
+      mr-2 
+      px-2.5 
+      py-0.5 
+      rounded ">
+      <%= gettext("Pending") %>
+    </span>
+  <% "valid" -> %>
+    <span class=
+      "bg-green-100
+      text-green-800 
+      text-xs 
+      font-semibold 
+      mr-2 
+      px-2.5 
+      py-0.5 
+      rounded ">
+      <%= gettext("Valid") %>
+    </span>
+  <% "expired" -> %>
+    <span class=
+      "bg-red-100
+      text-red-800 
+      text-xs 
+      font-semibold 
+      mr-2 
+      px-2.5 
+      py-0.5 
+      rounded ">
+      <%= gettext("Expired") %>
+    </span>
+  <% "future" -> %>
+    <span class=
+      "bg-blue-100
+      text-blue-800 
+      text-xs 
+      font-semibold 
+      mr-2 
+      px-2.5 
+      py-0.5 
+      rounded ">
+      <%= gettext("Future") %>
+    </span>
+  <% _ -> %> UNKNOWN: <%= @membership.state %>
+
+  
+<% end %>

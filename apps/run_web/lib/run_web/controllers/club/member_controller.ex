@@ -33,11 +33,6 @@ defmodule RunWeb.Club.MemberController do
         |> put_flash(:info, gettext("Account created"))
         |> UserAuth.log_in_user(user)
 
-      # |> redirect(to: Routes.user_session_path(conn, :new))
-
-      # |> put_flash(:info, "User created successfully.")
-      # |> UserAuth.log_in_user(user)
-
       {:error, %Ecto.Changeset{} = changeset} ->
         blog = Admin.get_blog_with_posts_by_identifier!("New membership")
 
@@ -56,7 +51,8 @@ defmodule RunWeb.Club.MemberController do
     render(
       conn |> assign(:breadcrumbs, breadcrumbs(conn)),
       "show.html",
-      user: user
+      user: user,
+      memberships: Club.get_memberships_by_user_id(user.id)
     )
   end
 
@@ -92,6 +88,15 @@ defmodule RunWeb.Club.MemberController do
     end
   end
 
+  def delete(conn, %{"id" => id}) do
+    membership = Club.get_membership!(id)
+    {:ok, _post} = Club.delete_membership(membership)
+
+    conn
+    |> put_flash(:info, "Member deleted successfully.")
+    |> redirect(to: Routes.landing_page_path(conn, :index))
+  end
+
   defp default_attrs do
     %User{date_of_birth: ~D[1980-06-01], country: "Denmark"}
   end
@@ -99,7 +104,7 @@ defmodule RunWeb.Club.MemberController do
   defp breadcrumbs(conn) do
     %{
       show: true,
-      root: %{title: gettext("Home"), path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [],
       current_page: gettext("Account")
     }
@@ -108,7 +113,7 @@ defmodule RunWeb.Club.MemberController do
   defp breadcrumbs(conn) do
     %{
       show: true,
-      root: %{title: gettext("Home"), path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [
         %{title: gettext("Sign up"), path: Routes.sign_up_page_path(conn, :index)}
       ],

@@ -27,7 +27,7 @@ defmodule RunWeb.Router do
     get "/contact", ContactController, :index, as: :contact_page
     get "/calendar", CalendarController, :index, as: :calendar_page
     get "/events", EventsController, :index, as: :events_page
-    get "/committees", CommitteesPageController, :index, as: :committees_page
+    get "/committees", CommitteesController, :index, as: :committees_page
   end
 
   # Other scopes may use custom stacks.
@@ -89,6 +89,8 @@ defmodule RunWeb.Router do
   scope "/user", RunWeb.User do
     pipe_through [:browser, :require_authenticated_user]
 
+    # get "", UserController, :show
+
     get "/settings", SettingsController, :edit, as: :user_settings
     put "/settings", SettingsController, :update, as: :user_settings
 
@@ -114,9 +116,15 @@ defmodule RunWeb.Router do
       resources "/posts", PostController
     end
 
-    resources "/users", UsersController, as: :admin_users
-    resources "/memberships", MembershipController
+    resources "/users", UsersController, as: :admin_users do
+      resources "/memberships", MembershipController
+    end
   end
+
+  # scope "/admin", RunWeb.Admin do
+  #   pipe_through [:browser, :require_admin, :require_super]
+  #   resources "/memberships", MembershipController
+  # end
 
   scope "/admin", RunWeb.Admin do
     pipe_through [:browser, :require_admin, :require_architect]
@@ -128,6 +136,18 @@ defmodule RunWeb.Router do
 
     get "/member/new", MemberController, :new, as: :new_member
     post "/member", MemberController, :create, as: :new_member
+  end
+
+  scope "/club", RunWeb.Club do
+    pipe_through [:browser, :require_authenticated_user]
+
+    get "/membership", MembershipController, :new, as: :new_membership
+    post "/membership", MembershipController, :create, as: :new_membership
+
+    get "/membership/:id/success", PaymentSuccessController, :show,
+      as: :membership_payment_success
+
+    get "/membership/:id/error", PaymentErrorController, :show, as: :membership_payment_error
   end
 
   scope "/member", RunWeb.Club do
@@ -142,7 +162,7 @@ defmodule RunWeb.Router do
 
     get "/checkout", CheckoutController, :new, as: :checkout
     get "/completed", CompletedController, :show, as: :payment_completed
-    get "error", ErrorController, :show, as: :payment_error
+    get "/error", ErrorController, :show, as: :payment_error
   end
 
   scope "/super", RunWeb.Super do

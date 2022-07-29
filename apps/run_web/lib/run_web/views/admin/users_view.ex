@@ -8,12 +8,10 @@ defmodule RunWeb.Admin.UsersView do
     end
   end
 
-  def valid?(membership) do
-    start = Timex.shift(membership.start, days: 1)
-    IO.inspect(Timex.after?(start, Timex.today()))
-    # IO.inspect(Timex.after?(membership.end, Timex.today()))
-    # with membership do
-    #   {}
-    # end
+  def valid?(%Run.Club.Membership{start_date: _start_date, end_date: nil}), do: false
+
+  def valid?(%Run.Club.Membership{start_date: start_date, end_date: end_date}) do
+    start_date = Timex.shift(start_date, days: -1)
+    Timex.between?(Timex.today(), start_date, end_date)
   end
 end

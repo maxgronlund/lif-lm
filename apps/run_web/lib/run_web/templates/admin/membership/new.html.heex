@@ -1,0 +1,5 @@
+<div class="md:container md:mx-auto mt-8 px-2">
+  <div class="relative pt-8 mb-8 page-header page-title"><%= gettext("New membership") %></div>
+
+  <%= render "form.html", Map.put(assigns, :action, Routes.admin_users_membership_path(@conn, :create, @user)) %>
+</div>

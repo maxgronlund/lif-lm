@@ -25,6 +25,7 @@ defmodule Run.Accounts.User do
     field :admin, :boolean, default: false
     field :super, :boolean, default: false, redact: true
     field :architect, :boolean, default: false, redact: true
+    field :valid_member, :boolean, default: false
     has_many :memberships, Run.Club.Membership
 
     timestamps()
@@ -130,6 +131,12 @@ defmodule Run.Accounts.User do
     else
       changeset
     end
+  end
+
+  def membership_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:valid_member])
+    |> validate_required([:valid_member])
   end
 
   @doc """

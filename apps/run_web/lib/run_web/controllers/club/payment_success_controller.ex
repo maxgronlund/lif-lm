@@ -1,12 +1,10 @@
-defmodule RunWeb.Payment.CompletedController do
+defmodule RunWeb.Club.PaymentSuccessController do
   use RunWeb, :controller
-
   alias Run.Club
   alias Run.Admin
 
-  def show(conn, %{"id" => membership_id}) do
-    membership = Club.get_membership!(membership_id)
-
+  def show(conn, %{"id" => id}) do
+    membership = Club.get_membership!(id)
     start_date = membership.start_date
     end_date = Timex.shift(start_date, years: 1)
 

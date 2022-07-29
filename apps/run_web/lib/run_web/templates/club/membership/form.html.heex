@@ -1,0 +1,12 @@
+<div class="w-full">
+  <div class="form-component">
+    <.form let={f} for={@changeset} action={@action}>
+
+     <%= hidden_input f, :start_date, value: @start_date %>      
+     
+      <div class="mt-4">
+        <%= submit gettext("Save"), class: "btn btn-right btn-blue" %>
+      </div>
+    </.form>
+  </div>
+</div>

@@ -21,6 +21,7 @@ defmodule Run.Repo.Migrations.CreateUsersAuthTables do
       add :city, :string
       add :country, :string, default: "Danmark"
       add :date_of_birth, :date
+      add :valid_member, :boolean, default: false
       timestamps()
     end
 

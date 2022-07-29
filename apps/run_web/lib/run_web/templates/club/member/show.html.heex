@@ -1,4 +1,49 @@
-<div class="md:container md:mx-auto mt-8">
-<div class="relative pt-8 mb-8 page-header page-title"><%= @current_user.username %> </div>
+<div class="md:container md:mx-auto mt-8 px-2">
+  <div class="relative pt-8 mb-8 page-header page-title"><%= @current_user.username %> </div>
 </div>
-
+<div class="md:container md:mx-auto mt-8 px-2">
+  <div class="relative pt-8 mb-8 text-black font-semibold text-2xl"><%= gettext("Membership") %> </div>
+  
+  <%= link gettext("buy membership"), to: Routes.new_membership_path(@conn, :new), class: "btn btn-blue" %>
+  
+</div>
+<div class="md:container md:mx-auto mt-8 px-2">
+  <div class="overflow-x-auto relative">
+    <table class="w-full text-sm text-left text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("Purchased") %>
+          </th>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("Start") %>
+          </th>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("End") %> 
+          </th>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("Status") %> 
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for membership <- @memberships do %>
+          <tr class="bg-white border-b hover:bg-gray-50">
+            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+              <%= format_date(membership.inserted_at) %>
+            </th>
+            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+              <%= format_date(membership.start_date) %>
+            </th>
+            <td class="py-4 px-6">
+              <%= format_date(membership.end_date) %>
+            </td>
+            <td class="py-4 px-6">
+              <%= render RunWeb.SharedView, "membership_status.html", %{membership: membership} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

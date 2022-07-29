@@ -9,6 +9,8 @@ defmodule Run.Club do
   alias Run.Club.Membership
   alias Run.Accounts.User
 
+  def get_user!(id), do: Run.Accounts.get_user!(id)
+
   @doc """
   Returns the list of memberships.
 
@@ -37,6 +39,24 @@ defmodule Run.Club do
 
   """
   def get_membership!(id), do: Repo.get!(Membership, id)
+
+  def get_memberships_by_user_id(user_id) do
+    memberships_by_user_id(user_id)
+    |> order_by([m], desc: m.end_date)
+    |> Repo.all()
+  end
+
+  def get_latest_membership_by_user_id(user_id) do
+    memberships_by_user_id(user_id)
+    |> order_by([m], asc: m.end_date)
+    |> last()
+    |> Repo.one()
+  end
+
+  defp memberships_by_user_id(user_id) do
+    from m in Membership,
+      where: m.user_id == ^user_id and m.state != ^"pending"
+  end
 
   @doc """
   Creates a member.

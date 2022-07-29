@@ -10,6 +10,8 @@ defmodule Run.Application do
     children = [
       # Start the Ecto repository
       Run.Repo,
+      # Start the scheduler
+      Run.Scheduler,
       # Start the PubSub system
       {Phoenix.PubSub, name: Run.PubSub}
       # Start a worker by calling: Run.Worker.start_link(arg)

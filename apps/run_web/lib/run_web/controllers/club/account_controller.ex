@@ -65,7 +65,7 @@ defmodule RunWeb.Club.AccountController do
   defp breadcrumbs(conn) do
     %{
       show: true,
-      root: %{title: gettext("Home"), path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [
         %{title: gettext("Sign up"), path: Routes.sign_up_page_path(conn, :index)}
       ],

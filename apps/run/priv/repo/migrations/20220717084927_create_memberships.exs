@@ -4,8 +4,8 @@ defmodule Run.Repo.Migrations.CreateMemberships do
   def change do
     create table(:memberships, primary_key: false) do
       add :id, :binary_id, primary_key: true
-      add :start, :date
-      add :end, :date
+      add :start_date, :date
+      add :end_date, :date
       add :amount, :integer
       add :currency, :string, default: "dkk"
       add :type, :string
