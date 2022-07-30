@@ -51,3 +51,5 @@ config :run_web, RunWeb.Endpoint,
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+config :stripity_stripe, api_key: System.get_env("STRIPE_SECRET_KEY")

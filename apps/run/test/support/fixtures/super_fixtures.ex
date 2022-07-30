@@ -4,17 +4,17 @@ defmodule Run.SuperFixtures do
   entities via the `Run.Super` context.
   """
 
+  import Ecto.Query, warn: false
+  alias Run.Repo
+
   @doc """
   Generate a configuration.
   """
   def configuration_fixture(attrs \\ %{}) do
-    {:ok, configuration} =
-      attrs
-      |> Enum.into(%{
-        invoice_id: 42
-      })
-      |> Run.Super.create_configuration()
+    query = from c in Run.Super.Configuration, select: 1
 
-    configuration
+    if !Repo.exists?(query) do
+      Repo.insert!(%Run.Super.Configuration{invoice_nr: 1000})
+    end
   end
 end

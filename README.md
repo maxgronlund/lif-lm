@@ -23,9 +23,9 @@ https://flowbite.com/docs/getting-started/quickstart/
 ### tailwind
 - card [codepen](https://codepen.io/handplant/pen/MWWaYNw?editors=1000)
 
-## Hekoku
+## Deploymend 
 
-
+- heroku run "POOL_SIZE=2 mex ecto.drop" --app limitless-cove-09957
 - heroku run "POOL_SIZE=2 mix ecto.create" --app lif-lm
 - heroku run "POOL_SIZE=2 mix ecto.migrate" --app lif-lm 
 - heroku run "POOL_SIZE=2 mix run apps/run/priv/repo/seeds.exs" --app limitless-cove-09957

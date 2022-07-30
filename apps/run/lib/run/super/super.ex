@@ -53,7 +53,7 @@ defmodule Run.Super do
     |> Repo.one()
   end
 
-  def update_invoice_nr do
+  defp update_invoice_nr do
     configuration()
     |> Configuration.changeset(%{"invoice_nr" => next_invoice_nr()})
     |> Repo.update()
