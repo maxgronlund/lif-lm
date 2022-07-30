@@ -148,6 +148,7 @@ defmodule RunWeb.Router do
       as: :membership_payment_success
 
     get "/membership/:id/error", PaymentErrorController, :show, as: :membership_payment_error
+    get "/invoice/:id", InvoiceController, :show
   end
 
   scope "/member", RunWeb.Club do

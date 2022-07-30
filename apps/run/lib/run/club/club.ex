@@ -40,6 +40,8 @@ defmodule Run.Club do
   """
   def get_membership!(id), do: Repo.get!(Membership, id)
 
+  def get_membership_with_user!(id), do: get_membership!(id) |> Repo.preload(:user)
+
   def get_memberships_by_user_id(user_id) do
     memberships_by_user_id(user_id)
     |> order_by([m], desc: m.end_date)

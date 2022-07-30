@@ -24,6 +24,9 @@
           <th scope="col" class="py-3 px-6">
             <%= gettext("Status") %> 
           </th>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("Invoice") %> 
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -40,6 +43,9 @@
             </td>
             <td class="py-4 px-6">
               <%= render RunWeb.SharedView, "membership_status.html", %{membership: membership} %>
+            </td>
+            <td class="py-4 px-6">
+              <%= link gettext("Show"), to: Routes.invoice_path(@conn, :show, membership) %>
             </td>
           </tr>
         <% end %>

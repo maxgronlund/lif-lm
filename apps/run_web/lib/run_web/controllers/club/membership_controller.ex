@@ -10,11 +10,9 @@ defmodule RunWeb.Club.MembershipController do
   # end
 
   def new(conn, _params) do
-    current_user = conn.assigns[:current_user]
+    user = conn.assigns[:current_user]
 
-    latest_membership = Club.get_latest_membership_by_user_id(current_user.id)
-
-    start_date = latest_membership.end_date
+    start_date = start_date(user)
 
     changeset =
       Club.change_membership(%Membership{
@@ -22,13 +20,20 @@ defmodule RunWeb.Club.MembershipController do
       })
 
     render(
-      conn |> assign(:breadcrumbs, breadcrumbs(conn, current_user, :new)),
+      conn |> assign(:breadcrumbs, breadcrumbs(conn, user, :new)),
       "new.html",
       changeset: changeset,
-      user: current_user,
+      user: user,
       start_date: start_date,
       end_date: Timex.shift(start_date, years: 1)
     )
+  end
+
+  defp start_date(user) do
+    case Club.get_latest_membership_by_user_id(user.id) do
+      nil -> Timex.today()
+      membership -> membership.end_date
+    end
   end
 
   defp success_url(membership_id) do

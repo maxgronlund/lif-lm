@@ -4,6 +4,7 @@ defmodule Run.Repo.Migrations.CreateMemberships do
   def change do
     create table(:memberships, primary_key: false) do
       add :id, :binary_id, primary_key: true
+      add :invoice_nr, :integer
       add :start_date, :date
       add :end_date, :date
       add :amount, :integer

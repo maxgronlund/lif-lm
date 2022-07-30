@@ -11,6 +11,7 @@ defmodule Run.Club.Membership do
     field :currency, :string, default: "dkk"
     field :type, :string, default: "membership one year"
     field :state, :string, default: "pending"
+    field :invoice_nr, :integer, default: 0
 
     belongs_to :user, Run.Accounts.User
 
@@ -28,7 +29,7 @@ defmodule Run.Club.Membership do
   @doc false
   def changeset(membership, attrs) do
     membership
-    |> cast(attrs, @required_attrs ++ [:end_date, :type, :state])
+    |> cast(attrs, @required_attrs ++ [:end_date, :type, :state, :invoice_nr])
     |> validate_required(@required_attrs)
   end
 

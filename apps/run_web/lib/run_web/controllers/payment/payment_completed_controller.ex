@@ -3,6 +3,7 @@ defmodule RunWeb.Payment.CompletedController do
 
   alias Run.Club
   alias Run.Admin
+  alias Run.Super
 
   def show(conn, %{"id" => membership_id}) do
     membership = Club.get_membership!(membership_id)
@@ -12,7 +13,11 @@ defmodule RunWeb.Payment.CompletedController do
 
     Club.update_membership(
       membership,
-      %{state: state(start_date), end_date: end_date}
+      %{
+        state: state(start_date),
+        end_date: end_date,
+        invoice_nr: Super.get_and_update_invoice_nr()
+      }
     )
 
     blog = Admin.get_blog_with_posts_by_identifier!("payment_completed")

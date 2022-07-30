@@ -47,7 +47,12 @@ for page <- pages do
   end
 end
 
-# # build default club
+query = from c in Run.Super.Configuration, select: 1
+
+if !Repo.exists?(query) do
+  Repo.insert!(%Run.Super.Configuration{invoice_nr: 1000})
+end
+
 # query = from c in Run.ClubAdmin.Club, where: c.name == "system"
 #
 # club =

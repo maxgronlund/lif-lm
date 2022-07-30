@@ -1,0 +1,104 @@
+<% IO.inspect @user  %>
+<section class="py-20 bg-gray-400 -mt-12">
+ <div class="max-w-5xl mx-auto py-16 bg-white">
+  <article class="overflow-hidden">
+   <div class="bg-[white] rounded-b-md">
+    <div class="p-9">
+     <div class="space-y-6 text-slate-700">
+      <img src={Routes.static_path(@conn, "/images/lif-logo-red.svg")} class="mr-3 h-12" alt="LIF Logo">
+
+      <p class="text-xl font-extrabold tracking-tight uppercase font-body">
+       LIF Løb og Motion
+      </p>
+     </div>
+    </div>
+    <div class="p-9">
+     <div class="flex w-full">
+      <div class="grid grid-cols-4 gap-12">
+       <div class="text-sm font-light text-slate-500">
+        <p class="text-sm font-normal text-slate-700">
+          <%= gettext("Invoice") %>
+        </p>
+        <p>LIF Løb og Motion</p>
+        <p>Lystrup Centervej 102</p>
+        <p>8520 Lystrup</p>
+
+       </div>
+       <div class="text-sm font-light text-slate-500">
+        <p class="text-sm font-normal text-slate-700"><%= gettext("Billed To") %></p>
+        <p><%= full_name(@user) %></p>
+        <p><%= @user.street_and_house_nr %></p>
+        <p><%= "#{@user.city} #{@user.zip_code}"  %></p>
+       </div>
+       <div class="text-sm font-light text-slate-500">
+        <p class="text-sm font-normal text-slate-700"><%= gettext("Invoice Number") %></p>
+        <p><%= @membership.invoice_nr %></p>
+
+        <p class="mt-2 text-sm font-normal text-slate-700">
+          <%= gettext("Date of Issue") %>
+        </p>
+        <p><%= format_date @membership.inserted_at %></p>
+       </div>
+      
+      </div>
+     </div>
+    </div>
+
+    <div class="p-9">
+     <div class="flex flex-col mx-0 mt-8">
+      <table class="min-w-full divide-y divide-slate-500">
+       <thead>
+        <tr>
+         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-normal text-slate-700 sm:pl-6 md:pl-0">
+          <%= gettext("Description") %>         
+         </th>
+         <th scope="col" class="hidden py-3.5 px-3 text-right text-sm font-normal text-slate-700 sm:table-cell">
+           <% gettext("Period") %>
+         </th>
+         <th scope="col" class="hidden py-3.5 px-3 text-right text-sm font-normal text-slate-700 sm:table-cell">
+          <%= gettext("Price") %>
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr class="border-b border-slate-200">
+         <td class="py-4 pl-4 pr-3 text-sm sm:pl-6 md:pl-0">
+          <div class="font-medium text-slate-700"><%= gettext("Membership one year") %></div>
+          <div class="mt-0.5 text-slate-500 sm:hidden">
+           <%= gettext("Membership one year") %> 
+          </div>
+         </td>
+         <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
+         </td>
+         <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
+          <%= format_price(@membership) %> 
+         </td>
+         <td class="py-4 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
+          <%= format_price(@membership) %> 
+         </td>
+        </tr>
+
+        <!-- Here you can write more products/tasks that you want to charge for-->
+       </tbody>
+       <tfoot>
+        <tr>
+         <th scope="row" colspan="3" class="hidden pt-4 pl-6 pr-3 text-sm font-normal text-right text-slate-700 sm:table-cell md:pl-0">
+          Total
+         </th>
+         <th scope="row" class="pt-4 pl-4 pr-3 text-sm font-normal text-left text-slate-700 sm:hidden">
+          Total
+         </th>
+         <td class="pt-4 pl-3 pr-4 text-sm font-normal text-right text-slate-700 sm:pr-6 md:pr-0">
+          <%= format_price(@membership) %>
+         </td>
+        </tr>
+       </tfoot>
+      </table>
+     </div>
+    </div>
+
+    
+   </div>
+  </article>
+ </div>
+</section>
