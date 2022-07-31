@@ -1,3 +1,13 @@
+<script>
+  tinymce.init({
+    selector: '#body_input',
+    menubar: false,
+    toolbar: "alignleft aligncenter alignright | formatselect bold italic | indent outdent | bullist numlist | code",
+    height : 300,
+    //content_css: "#{Routes.static_path(@conn, "/css/app.css")}",
+    plugins: "code lists"
+  });
+</script>
 <div class="w-full px-4">
   <div class="form-component">
     <.form let={f} for={@changeset} action={@action} multipart={true}>
@@ -7,12 +17,13 @@
           <p><%= gettext("Oops, something went wrong! Please check the errors below.") %></p>
         </div>
       <% end %>
-
-      <%= label f, :identifier, gettext("Identifier"), class: "block text-gray-700 text-m font-bold mb-2" %>
-      <%= text_input f, :identifier, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
-      <div class="text-red-500">
-        <%= error_tag f, :identifier%>
-      </div>
+      <%= if @current_user.architect do %> 
+        <%= label f, :identifier, gettext("Identifier"), class: "block text-gray-700 text-m font-bold mb-2" %>
+        <%= text_input f, :identifier, required: true, class: "form-input px-4 py-3 rounded-md w-full" %>
+        <div class="text-red-500">
+          <%= error_tag f, :identifier%>
+        </div>
+      <% end %>
 
       <%= label f, :link, gettext("Link"), class: "block text-gray-700 text-m font-bold mb-2" %>
       <%#= text_input f, :link, class: "form-input px-4 py-3 rounded-md w-full" %>
@@ -44,7 +55,7 @@
       </div>
 
       <%= label f, :description, gettext("Description"), class: "block text-gray-700 text-m font-bold mb-2" %>
-      <%= textarea f, :description, class: "form-input px-4 py-3 rounded-md w-full h-48"  %>
+      <%= textarea f, :description, class: "form-input px-4 py-3 rounded-md w-full h-48", id: "body_input"  %>
       <%= error_tag f, :description %>
 
       <div>

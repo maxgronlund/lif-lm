@@ -70,7 +70,7 @@ defmodule Run.Accounts.User do
     |> cast_attachments(attrs, [:avatar])
   end
 
-  def update_changeset(user, attrs, opts \\ []) do
+  def update_changeset(user, attrs, _opts \\ []) do
     user
     |> cast(attrs, @default_fields ++ @address_fields)
     |> validate_required([:username])

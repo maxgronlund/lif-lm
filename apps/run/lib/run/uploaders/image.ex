@@ -55,7 +55,7 @@ defmodule Run.Uploader.Image do
   end
 
   # Provide a default URL if there hasn't been a file uploaded
-  def default_url(version, scope) do
+  def default_url(_version, _scope) do
     "/images/loeb-og-motion-logo.jpg"
 
     # case scope do
@@ -67,55 +67,55 @@ defmodule Run.Uploader.Image do
     # end
   end
 
-  defp random_image(version) do
-    case :rand.uniform(3) do
-      1 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/#{version}.jpg"
+  # defp random_image(version) do
+  #   case :rand.uniform(3) do
+  #     1 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/#{version}.jpg"
 
-      2 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/#{version}.jpg"
+  #     2 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/#{version}.jpg"
 
-      3 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/#{version}.jpg"
-    end
-  end
+  #     3 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/#{version}.jpg"
+  #   end
+  # end
 
-  defp random_animal(version) do
-    case :rand.uniform(11) do
-      1 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/bee/#{version}.jpg"
+  # defp random_animal(version) do
+  #   case :rand.uniform(11) do
+  #     1 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/bee/#{version}.jpg"
 
-      2 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/bird/#{version}.jpg"
+  #     2 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/bird/#{version}.jpg"
 
-      3 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/butterfly/#{version}.jpg"
+  #     3 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/butterfly/#{version}.jpg"
 
-      4 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/cane-toad/#{version}.jpg"
+  #     4 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/cane-toad/#{version}.jpg"
 
-      5 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/cat/#{version}.jpg"
+  #     5 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/cat/#{version}.jpg"
 
-      6 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/doe/#{version}.jpg"
+  #     6 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/doe/#{version}.jpg"
 
-      7 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/fox/#{version}.jpg"
+  #     7 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/fox/#{version}.jpg"
 
-      8 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/goat/#{version}.jpg"
+  #     8 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/goat/#{version}.jpg"
 
-      9 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/hedgehog/#{version}.jpg"
+  #     9 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/hedgehog/#{version}.jpg"
 
-      10 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/sparrow/#{version}.jpg"
+  #     10 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/sparrow/#{version}.jpg"
 
-      11 ->
-        "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/squirrel/#{version}.jpg"
-    end
-  end
+  #     11 ->
+  #       "https://aoff.s3-eu-west-1.amazonaws.com/default/image/animals/squirrel/#{version}.jpg"
+  #   end
+  # end
 
   # Specify custom headers for s3 objects
   # Available options are [:cache_control, :content_disposition,
