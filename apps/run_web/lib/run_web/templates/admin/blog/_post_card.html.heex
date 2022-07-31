@@ -8,10 +8,9 @@
         text-green-800 
         text-xs 
         font-semibold 
-        mr-2 px-2.5 py-0.5 rounded 
-        dark:bg-green-200 
-        dark:text-green-900"><%= @post.identifier %></span>
-      <div class="mt-1 mb-10"><%= @post.body%></div>
+        mr-2 px-2.5 py-0.5 rounded">
+        <%= @post.identifier %></span>
+      <div class="mt-1 mb-10"><%= raw @post.body%></div>
     </div>
   </div>
   <div class="absolute bottom-2 ml-2">

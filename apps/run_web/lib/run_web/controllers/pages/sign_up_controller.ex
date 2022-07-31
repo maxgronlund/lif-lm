@@ -5,7 +5,7 @@ defmodule RunWeb.Page.SignUpController do
   alias Run.Accounts.User
 
   def index(conn, _params) do
-    blog = Admin.get_blog_with_posts_by_identifier!("sign-up")
+    blog = Admin.get_blog_with_posts_by_identifier!("sign_up_page")
     grant_races = Admin.get_posts_by_page_id_and_identifier(blog.id, "grant_races")
     club_clothes = Admin.get_posts_by_page_id_and_identifier(blog.id, "club_clothes")
     events = Admin.get_posts_by_page_id_and_identifier(blog.id, "events")

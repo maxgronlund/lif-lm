@@ -1,0 +1,11 @@
+<div class="md:container md:mx-auto mt-8 px-2">
+  <div class="relative pt-8 mb-8 page-header page-title"><%= @blog.title%></div>
+
+
+  <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
+    <div>
+      <%= raw @blog.description %>
+    </div>
+    <%= img_tag Run.Uploader.Image.url({@blog.image, @blog}, :post_card)%>
+  </div>
+</div>

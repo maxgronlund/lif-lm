@@ -13,8 +13,8 @@
         font-semibold 
         mr-2 px-2.5 py-0.5 rounded 
         dark:bg-green-200 
-        dark:text-green-900"><%= @blog.identifier %></span>
-      <div class="mt-1 mb-10 max-h-36 text-ellipsis overflow-hidden"><%= @blog.description%></div>
+        dark:text-green-900"><%= raw @blog.identifier %></span>
+      <div class="mt-1 mb-10 max-h-36 text-ellipsis overflow-hidden"><%= raw @blog.description%></div>
     </div>
   </div>
   <div class="absolute bottom-2 ml-2">

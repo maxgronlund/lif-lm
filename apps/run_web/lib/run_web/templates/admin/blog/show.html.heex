@@ -8,19 +8,23 @@
     <div class="text-black font-semibold text-2xl w-full">
       <%= @blog.title %>
     </div>
-    <div class="mt-4">
+    <div class="mt-4 mb-4">
       <%= link gettext("Edit Blog"), to: Routes.admin_blogs_path(@conn, :edit, @blog), class: "btn btn-blue" %>
       <%= if @current_user.architect do %>
         <%= link gettext("Delete"), to: Routes.admin_blog_path(@conn, :delete, @blog), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
       <% end %>
     </div>
-    <div class="mt-4 text-xl font-medium">
-      <%= gettext("show on: %{page}", page: @blog.page) %>
-    </div>
-    <br/>
-    <div class="pr-4">
-      <%= @blog.description %>
-    </div>
+    <span>
+      <%= gettext("show on:") %>
+    </span>
+    <span class="
+        bg-green-100 
+        text-green-800 
+        text-xs 
+        font-semibold 
+        mr-2 px-2.5 py-0.5 rounded">
+        <%= @blog.identifier %>
+    </span>
   </div>
 
 

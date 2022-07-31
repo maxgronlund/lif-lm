@@ -4,17 +4,6 @@ defmodule RunWeb.Admin.BlogController do
   alias Run.Admin
   alias Run.Admin.Blog
 
-  # def permitted(conn) do
-  #   if conn.assigns[:current_user].architect do
-  #     conn
-  #   else
-  #     conn
-  #     |> put_flash(:info, gettext("You need permissions to access that page"))
-  #     |> redirect(to: Routes.admin_blogs_path(conn, :index))
-  #     |> halt()
-  #   end
-  # end
-
   def index(conn, _params) do
     blogs = Admin.list_blogs()
 
