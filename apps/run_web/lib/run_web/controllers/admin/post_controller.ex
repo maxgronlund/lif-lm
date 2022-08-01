@@ -93,8 +93,8 @@ defmodule RunWeb.Admin.PostController do
   defp breadcrumbs(conn) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
-      links: [%{title: "admin", path: Routes.admin_path(conn, :index)}],
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
+      links: [%{title: gettext("admin"), path: Routes.admin_path(conn, :index)}],
       current_page: gettext("blogs")
     }
   end
@@ -102,9 +102,9 @@ defmodule RunWeb.Admin.PostController do
   defp new_breadcrumbs(conn, blog) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [
-        %{title: "admin", path: Routes.admin_path(conn, :index)},
+        %{title: gettext("admin"), path: Routes.admin_path(conn, :index)},
         %{title: blog.title, path: Routes.admin_blogs_path(conn, :show, blog)}
       ],
       current_page: gettext("new")
@@ -114,9 +114,9 @@ defmodule RunWeb.Admin.PostController do
   defp edit_breadcrumbs(conn, blog, post) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [
-        %{title: "admin", path: Routes.admin_path(conn, :index)},
+        %{title: gettext("admin"), path: Routes.admin_path(conn, :index)},
         %{title: blog.title, path: Routes.admin_blogs_path(conn, :show, blog)}
       ],
       current_page: post.title

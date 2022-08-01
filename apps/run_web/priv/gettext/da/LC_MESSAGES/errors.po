@@ -12,6 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/controllers/user_session_controller.ex:18
+#: lib/run_web/controllers/user/user_session_controller.ex:19
 msgid "Invalid email or password"
 msgstr "Ugyldig email eller adgangskode"

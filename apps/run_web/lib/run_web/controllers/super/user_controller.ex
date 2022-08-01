@@ -34,7 +34,7 @@ defmodule RunWeb.Super.UserController do
       {:ok, blog} ->
         conn
         |> assign(:breadcrumbs, breadcrumbs(conn))
-        |> put_flash(:info, "User permissions updated.")
+        |> put_flash(:info, gettext("User permissions updated."))
         |> redirect(to: Routes.super_users_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -48,7 +48,7 @@ defmodule RunWeb.Super.UserController do
   defp breadcrumbs(conn) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [%{title: "super", path: Routes.super_dashboard_path(conn, :index)}],
       current_page: gettext("users")
     }
@@ -57,7 +57,7 @@ defmodule RunWeb.Super.UserController do
   defp edit_user_breadcrumbs(conn, user) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [%{title: "super", path: Routes.super_dashboard_path(conn, :index)}],
       current_page: user.username
     }

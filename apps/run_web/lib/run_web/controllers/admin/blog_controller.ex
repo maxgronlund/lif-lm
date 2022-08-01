@@ -106,10 +106,10 @@ defmodule RunWeb.Admin.BlogController do
   defp show_blog_breadcrumbs(conn, blog) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [
-        %{title: "admin", path: Routes.admin_path(conn, :index)},
-        %{title: "blogs", path: Routes.admin_blogs_path(conn, :index)}
+        %{title: gettext("admin"), path: Routes.admin_path(conn, :index)},
+        %{title: gettext("blogs"), path: Routes.admin_blogs_path(conn, :index)}
       ],
       current_page: blog.title
     }
@@ -118,7 +118,7 @@ defmodule RunWeb.Admin.BlogController do
   defp edit_blog_breadcrumbs(conn, blog) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [
         %{title: gettext("admin"), path: Routes.admin_path(conn, :index)},
         %{title: gettext("blogs"), path: Routes.admin_blogs_path(conn, :index)},
@@ -131,8 +131,8 @@ defmodule RunWeb.Admin.BlogController do
   defp breadcrumbs(conn) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
-      links: [%{title: "admin", path: Routes.admin_path(conn, :index)}],
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
+      links: [%{title: gettext("admin"), path: Routes.admin_path(conn, :index)}],
       current_page: gettext("blogs")
     }
   end
@@ -140,10 +140,10 @@ defmodule RunWeb.Admin.BlogController do
   defp new_blog_breadcrumbs(conn) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [
-        %{title: "admin", path: Routes.admin_path(conn, :index)},
-        %{title: "blogs", path: Routes.admin_blogs_path(conn, :index)}
+        %{title: gettext("admin"), path: Routes.admin_path(conn, :index)},
+        %{title: gettext("blogs"), path: Routes.admin_blogs_path(conn, :index)}
       ],
       current_page: gettext("new blog")
     }

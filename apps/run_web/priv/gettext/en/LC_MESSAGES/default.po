@@ -12,214 +12,769 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_registration/new.html.heex:40
-#: lib/run_web/templates/user_session/new.html.heex:34
+#: lib/run_web/templates/user/reset_password/new.html.heex:1
+#: lib/run_web/templates/user/session/new.html.heex:34
 msgid "Forgot your password?"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/layout/_navbar.html.heex:29
-#: lib/run_web/templates/user_registration/new.html.heex:39
-#: lib/run_web/templates/user_session/new.html.heex:1
-#: lib/run_web/templates/user_session/new.html.heex:27
+#: lib/run_web/templates/layout/_navbar.html.heex:38
+#: lib/run_web/templates/user/session/new.html.heex:4
+#: lib/run_web/templates/user/session/new.html.heex:27
 msgid "Log in"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_registration/new.html.heex:8
-#: lib/run_web/templates/user_settings/edit.html.heex:9
-#: lib/run_web/templates/user_settings/edit.html.heex:44
+#: lib/run_web/templates/admin/blog/form.html.heex:17
+#: lib/run_web/templates/admin/membership/form.html.heex:7
+#: lib/run_web/templates/club/member/edit_form.html.heex:9
+#: lib/run_web/templates/club/member/form.html.heex:7
+#: lib/run_web/templates/super/user/form.html.heex:8
+#: lib/run_web/templates/user/settings/edit.html.heex:8
+#: lib/run_web/templates/user/settings/edit.html.heex:53
 msgid "Oops, something went wrong! Please check the errors below."
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/layout/_navbar.html.heex:30
-#: lib/run_web/templates/user_registration/new.html.heex:1
-#: lib/run_web/templates/user_registration/new.html.heex:35
-#: lib/run_web/templates/user_session/new.html.heex:33
+#: lib/run_web/templates/layout/_navbar.html.heex:39
+#: lib/run_web/templates/page/sign_up/index.html.heex:5
+#: lib/run_web/templates/user/session/new.html.heex:33
 msgid "Register"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_settings/edit.html.heex:37
-#: lib/run_web/templates/user_settings/edit.html.heex:75
+#: lib/run_web/templates/user/settings/edit.html.heex:46
+#: lib/run_web/templates/user/settings/edit.html.heex:84
 msgid "Change password"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_session/new.html.heex:22
+#: lib/run_web/templates/user/session/new.html.heex:22
 msgid "Keep me logged in for 60 days"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/layout/_navbar.html.heex:20
-#: lib/run_web/templates/user_settings/edit.html.heex:1
+#: lib/run_web/templates/layout/_navbar.html.heex:24
+#: lib/run_web/templates/user/settings/edit.html.heex:1
 msgid "Settings"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_settings/edit.html.heex:31
+#: lib/run_web/templates/user/settings/edit.html.heex:38
 msgid "Change email"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/layout/_navbar.html.heex:23
+#: lib/run_web/templates/layout/_navbar.html.heex:31
 msgid "Log out"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_settings/edit.html.heex:58
+#: lib/run_web/templates/user/settings/edit.html.heex:67
 msgid "Confirm new password"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_settings/edit.html.heex:23
-#: lib/run_web/templates/user_settings/edit.html.heex:66
+#: lib/run_web/templates/user/settings/edit.html.heex:30
+#: lib/run_web/templates/user/settings/edit.html.heex:75
 msgid "Current password"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_session/new.html.heex:12
-#: lib/run_web/templates/user_settings/edit.html.heex:15
+#: lib/run_web/templates/admin/users/index.html.heex:13
+#: lib/run_web/templates/user/session/new.html.heex:12
+#: lib/run_web/templates/user/settings/edit.html.heex:22
 msgid "Email"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/live/club_admin_live/club_live/form_component.html.heex:14
-#: lib/run_web/live/club_live/index.html.heex:25
-#: lib/run_web/live/super_admin_live/club_live/form_component.html.heex:14
-#: lib/run_web/live/super_admin_live/club_live/index.html.heex:25
-msgid "Name"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_settings/edit.html.heex:50
+#: lib/run_web/templates/user/settings/edit.html.heex:59
 msgid "New password"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/user_session/new.html.heex:17
+#: lib/run_web/templates/user/session/new.html.heex:17
 msgid "Password"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/templates/layout/_navbar.html.heex:26
+#: lib/run_web/templates/admin/dashboard/index.html.heex:2
+#: lib/run_web/templates/layout/_navbar.html.heex:20
+#: lib/run_web/templates/super/user/form.html.heex:15
+#: lib/run_web/templates/super/user/index.html.heex:18
 msgid "Admin"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/controllers/user_session_controller.ex:24
+#: lib/run_web/controllers/user/user_session_controller.ex:26
 msgid "Logged out successfully."
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/live/super_admin_live/index.html.heex:5
-msgid "Manage clubs"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/run_web/live/super_admin_live/club_live/index.ex:54
-#: lib/run_web/live/super_admin_live/club_live/show.ex:28
-#: lib/run_web/live/super_admin_live/index.html.heex:2
-msgid "Super admin"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/run_web/controllers/user_settings_controller.ex:28
+#: lib/run_web/controllers/user/user_settings_controller.ex:28
 msgid "A link to confirm your email change has been sent to the new address."
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/live/club_admin_live/club_live/form_component.html.heex:22
-#: lib/run_web/live/super_admin_live/club_live/form_component.html.heex:26
+#: lib/run_web/templates/admin/blog/form.html.heex:57
+#: lib/run_web/templates/club/invoice/show.html.heex:53
 msgid "Description"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/controllers/user_settings_controller.ex:62
+#: lib/run_web/controllers/user/user_settings_controller.ex:67
 msgid "Email change link is invalid or it has expired."
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/controllers/user_settings_controller.ex:57
+#: lib/run_web/controllers/user/user_settings_controller.ex:61
 msgid "Email changed successfully."
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/live/super_admin_live/club_live/index.ex:30
-#: lib/run_web/live/super_admin_live/club_live/index.html.heex:20
-msgid "New Club"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/run_web/controllers/user_settings_controller.ex:44
+#: lib/run_web/controllers/user/password_controller.ex:20
+#: lib/run_web/controllers/user/user_settings_controller.ex:45
 msgid "Password updated successfully."
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/live/club_admin_live/club_live/show.html.heex:1
-msgid "%{name} (Club admin)"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/run_web/live/club_admin_live/club_live/show.html.heex:19
+#: lib/run_web/templates/admin/blog/index.html.heex:2
 msgid "Blogs"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/live/super_admin_live/club_live/show.html.heex:25
-msgid "Club admin"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/run_web/live/super_admin_live/club_live/form_component.ex:42
-msgid "Club updated successfully"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/run_web/live/super_admin_live/club_live/index.html.heex:1
-#: lib/run_web/live/super_admin_live/club_live/show.ex:30
-msgid "Clubs"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/run_web/live/club_admin_live/club_live/show.html.heex:17
+#: lib/run_web/templates/admin/blog/_blog_card.html.heex:21
 msgid "Edit"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/live/club_admin_live/club_live/show.html.heex:18
-#: lib/run_web/live/super_admin_live/club_live/show.ex:23
-msgid "Show club"
+#: lib/run_web/templates/club/member/edit_form.html.heex:46
+#: lib/run_web/templates/club/member/form.html.heex:38
+msgid "*Date of birth"
 msgstr ""
 
 #, elixir-autogen, elixir-format, fuzzy
-#: lib/run_web/live/super_admin_live/club_live/index.ex:24
-msgid "Edit Club"
-msgstr ""
-
-#, elixir-autogen, elixir-format, fuzzy
-#: lib/run_web/live/super_admin_live/club_live/show.ex:24
-#: lib/run_web/live/super_admin_live/club_live/show.html.heex:24
-msgid "Edit club"
-msgstr ""
-
-#, elixir-autogen, elixir-format, fuzzy
-#: lib/run_web/live/super_admin_live/club_live/index.html.heex:40
-msgid "Delete club"
-msgstr ""
-
-#, elixir-autogen, elixir-format, fuzzy
-#: lib/run_web/live/super_admin_live/club_live/index.html.heex:39
-msgid "Manage club"
+#: lib/run_web/templates/club/member/edit_form.html.heex:22
+#: lib/run_web/templates/club/member/form.html.heex:13
+msgid "*Email"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/run_web/live/super_admin_live/club_live/show.ex:32
-msgid "club"
+#: lib/run_web/templates/club/member/edit_form.html.heex:34
+#: lib/run_web/templates/club/member/form.html.heex:64
+msgid "*First name"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/post/form.html.heex:21
+msgid "*Identifier"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/edit_form.html.heex:40
+#: lib/run_web/templates/club/member/form.html.heex:70
+msgid "*Last name"
 msgstr ""
 
 #, elixir-autogen, elixir-format, fuzzy
-#: lib/run_web/live/super_admin_live/club_live/index.ex:56
-msgid "clubs"
+#: lib/run_web/templates/club/member/form.html.heex:19
+msgid "*Password"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/form.html.heex:25
+msgid "*Password confirmation"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/edit_form.html.heex:28
+#: lib/run_web/templates/club/member/form.html.heex:32
+msgid "*User name"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:33
+#: lib/run_web/templates/admin/post/form.html.heex:35
+msgid "About page"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/club/member_controller.ex:109
+#: lib/run_web/templates/club/payment_success/show.html.heex:4
+#: lib/run_web/templates/layout/_navbar.html.heex:28
+#: lib/run_web/templates/payment/completed/show.html.heex:4
+msgid "Account"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/club/account_controller.ex:32
+#: lib/run_web/controllers/club/member_controller.ex:33
+msgid "Account created"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:20
+#: lib/run_web/templates/admin/membership/form.html.heex:44
+#: lib/run_web/templates/club/member/edit_form.html.heex:55
+#: lib/run_web/templates/club/member/form.html.heex:47
+msgid "April"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/super/user/form.html.heex:25
+#: lib/run_web/templates/super/user/index.html.heex:21
+msgid "Architect"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:24
+#: lib/run_web/templates/admin/membership/form.html.heex:48
+#: lib/run_web/templates/club/member/edit_form.html.heex:59
+#: lib/run_web/templates/club/member/form.html.heex:51
+msgid "August"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/invoice/show.html.heex:28
+msgid "Billed To"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/post/form.html.heex:61
+msgid "Body"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:37
+#: lib/run_web/templates/admin/post/form.html.heex:39
+msgid "Calendar page"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/edit_form.html.heex:87
+#: lib/run_web/templates/club/member/form.html.heex:90
+msgid "City"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:39
+#: lib/run_web/templates/admin/post/form.html.heex:41
+msgid "Committees"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:36
+#: lib/run_web/templates/admin/post/form.html.heex:38
+msgid "Contact page"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/form.html.heex:107
+msgid "Continue"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/edit_form.html.heex:95
+#: lib/run_web/templates/club/member/form.html.heex:98
+msgid "Country"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/users/show.html.heex:8
+msgid "Create membership"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/invoice/show.html.heex:38
+msgid "Date of Issue"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:28
+#: lib/run_web/templates/admin/membership/form.html.heex:52
+#: lib/run_web/templates/club/member/edit_form.html.heex:63
+#: lib/run_web/templates/club/member/form.html.heex:55
+msgid "December"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/templates/admin/blog/show.html.heex:14
+#: lib/run_web/templates/admin/users/index.html.heex:37
+#: lib/run_web/templates/admin/users/show.html.heex:45
+msgid "Delete"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/templates/admin/blog/edit.html.heex:2
+#: lib/run_web/templates/admin/blog/show.html.heex:12
+msgid "Edit Blog"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/super/user/edit.html.heex:1
+msgid "Edit User permissions"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/super/user/index.html.heex:49
+msgid "Edit permissions"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/templates/admin/post/edit.html.heex:2
+msgid "Edit post"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/users/show.html.heex:20
+#: lib/run_web/templates/club/member/show.html.heex:22
+msgid "End"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:35
+msgid "End date"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:38
+#: lib/run_web/templates/admin/post/form.html.heex:40
+msgid "Events page"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/shared/membership_status.html.heex:38
+msgid "Expired"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:18
+#: lib/run_web/templates/admin/membership/form.html.heex:42
+#: lib/run_web/templates/club/member/edit_form.html.heex:53
+#: lib/run_web/templates/club/member/form.html.heex:45
+msgid "February"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/layout/_footer.html.heex:24
+msgid "Find the code at github"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/membership/new.html.heex:5
+msgid "From %{date}"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/shared/membership_status.html.heex:50
+msgid "Future"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:21
+msgid "Identifier"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/invoice/show.html.heex:20
+#: lib/run_web/templates/club/member/show.html.heex:28
+msgid "Invoice"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/invoice/show.html.heex:34
+msgid "Invoice Number"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:17
+#: lib/run_web/templates/admin/membership/form.html.heex:41
+#: lib/run_web/templates/club/member/edit_form.html.heex:52
+#: lib/run_web/templates/club/member/form.html.heex:44
+msgid "January"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:23
+#: lib/run_web/templates/admin/membership/form.html.heex:47
+#: lib/run_web/templates/club/member/edit_form.html.heex:58
+#: lib/run_web/templates/club/member/form.html.heex:50
+msgid "July"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:22
+#: lib/run_web/templates/admin/membership/form.html.heex:46
+#: lib/run_web/templates/club/member/edit_form.html.heex:57
+#: lib/run_web/templates/club/member/form.html.heex:49
+msgid "June"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:32
+#: lib/run_web/templates/admin/post/form.html.heex:34
+msgid "Landing page"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:28
+#: lib/run_web/templates/admin/post/form.html.heex:30
+msgid "Link"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:19
+#: lib/run_web/templates/admin/membership/form.html.heex:43
+#: lib/run_web/templates/club/member/edit_form.html.heex:54
+#: lib/run_web/templates/club/member/form.html.heex:46
+msgid "March"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:21
+#: lib/run_web/templates/admin/membership/form.html.heex:45
+#: lib/run_web/templates/club/member/edit_form.html.heex:56
+#: lib/run_web/templates/club/member/form.html.heex:48
+msgid "May"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/show.html.heex:5
+msgid "Membership"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/invoice/show.html.heex:66
+#: lib/run_web/templates/club/invoice/show.html.heex:68
+msgid "Membership one year"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/index.html.heex:5
+#: lib/run_web/templates/admin/blog/new.html.heex:2
+msgid "New blog"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/admin/membership_controller.ex:115
+#: lib/run_web/controllers/club/account_controller.ex:72
+#: lib/run_web/controllers/club/member_controller.ex:120
+#: lib/run_web/templates/admin/membership/new.html.heex:2
+msgid "New membership"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/show.html.heex:33
+#: lib/run_web/templates/admin/post/new.html.heex:1
+msgid "New post"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/shared/valid_member.html.heex:24
+msgid "No"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:27
+#: lib/run_web/templates/admin/membership/form.html.heex:51
+#: lib/run_web/templates/club/member/edit_form.html.heex:62
+#: lib/run_web/templates/club/member/form.html.heex:54
+msgid "November"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:26
+#: lib/run_web/templates/admin/membership/form.html.heex:50
+#: lib/run_web/templates/club/member/edit_form.html.heex:61
+#: lib/run_web/templates/club/member/form.html.heex:53
+msgid "October"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/membership/new.html.heex:2
+msgid "Pay for membership"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/shared/membership_status.html.heex:14
+msgid "Pending"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/invoice/show.html.heex:56
+msgid "Period"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/show.html.heex:31
+msgid "Posts"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/invoice/show.html.heex:59
+msgid "Price"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/show.html.heex:16
+msgid "Purchased"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/page/calendar/_card.html.heex:13
+#: lib/run_web/templates/page/committees/_card.html.heex:13
+#: lib/run_web/templates/page/contact/_card.html.heex:13
+#: lib/run_web/templates/page/events/_card.html.heex:13
+msgid "Read more"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/templates/user/reset_password/edit.html.heex:1
+msgid "Reset password"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:62
+#: lib/run_web/templates/admin/membership/form.html.heex:59
+#: lib/run_web/templates/club/member/edit_form.html.heex:104
+#: lib/run_web/templates/club/membership/form.html.heex:8
+#: lib/run_web/templates/super/user/form.html.heex:42
+msgid "Save"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/user/reset_password/new.html.heex:14
+msgid "Send instructions to reset password"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:25
+#: lib/run_web/templates/admin/membership/form.html.heex:49
+#: lib/run_web/templates/club/member/edit_form.html.heex:60
+#: lib/run_web/templates/club/member/form.html.heex:52
+msgid "September"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/templates/admin/users/index.html.heex:36
+#: lib/run_web/templates/club/member/show.html.heex:48
+msgid "Show"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/club/account_controller.ex:70
+#: lib/run_web/controllers/club/member_controller.ex:118
+msgid "Sign up"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:34
+#: lib/run_web/templates/admin/post/form.html.heex:36
+msgid "Sign up page"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/users/show.html.heex:17
+#: lib/run_web/templates/club/member/show.html.heex:19
+msgid "Start"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/membership/form.html.heex:11
+msgid "Start date"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/show.html.heex:25
+msgid "Status"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/edit_form.html.heex:73
+#: lib/run_web/templates/club/member/form.html.heex:76
+msgid "Street and house nr."
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/templates/super/dashboard/index.html.heex:2
+#: lib/run_web/templates/super/user/form.html.heex:35
+#: lib/run_web/templates/super/user/index.html.heex:24
+msgid "Super"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/layout/_footer.html.heex:23
+msgid "This project is open source:"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:51
+#: lib/run_web/templates/admin/post/form.html.heex:53
+msgid "Title"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:35
+#: lib/run_web/templates/admin/post/form.html.heex:37
+msgid "Training page"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/admin/users_controller.ex:35
+msgid "User deleted"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/users/index.html.heex:10
+#: lib/run_web/templates/super/user/index.html.heex:12
+#: lib/run_web/templates/user/settings/edit.html.heex:14
+msgid "Username"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/users/index.html.heex:2
+#: lib/run_web/templates/super/user/index.html.heex:2
+msgid "Users"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/users/show.html.heex:23
+#: lib/run_web/templates/shared/membership_status.html.heex:26
+msgid "Valid"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/users/index.html.heex:16
+msgid "Valid member"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/shared/valid_member.html.heex:12
+msgid "Yes"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/edit_form.html.heex:80
+#: lib/run_web/templates/club/member/form.html.heex:83
+msgid "Zip code"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/club/membership_controller.ex:157
+#: lib/run_web/controllers/club/membership_controller.ex:168
+#: lib/run_web/controllers/user/account_controller.ex:9
+msgid "account"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/controllers/admin/blog_controller.ex:123
+#: lib/run_web/controllers/admin/blog_controller.ex:154
+#: lib/run_web/controllers/admin/dashboard_controller.ex:18
+#: lib/run_web/controllers/admin/dashboard_controller.ex:24
+#: lib/run_web/controllers/admin/membership_controller.ex:111
+#: lib/run_web/controllers/admin/membership_controller.ex:124
+#: lib/run_web/controllers/admin/users_controller.ex:43
+#: lib/run_web/controllers/admin/users_controller.ex:53
+#: lib/run_web/controllers/admin/users_controller.ex:62
+#: lib/run_web/controllers/club/account_controller.ex:78
+msgid "admin"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/controllers/admin/blog_controller.ex:124
+#: lib/run_web/controllers/admin/blog_controller.ex:136
+#: lib/run_web/controllers/admin/blog_controller.ex:155
+#: lib/run_web/controllers/admin/dashboard_controller.ex:25
+#: lib/run_web/controllers/admin/post_controller.ex:98
+#: lib/run_web/controllers/admin/users_controller.ex:63
+#: lib/run_web/controllers/club/account_controller.ex:79
+msgid "blogs"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/member/show.html.heex:7
+msgid "buy membership"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/controllers/admin/blog_controller.ex:127
+msgid "edit"
+msgstr ""
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/run_web/templates/super/user/index.html.heex:15
+msgid "email"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/admin/membership_controller.ex:109
+#: lib/run_web/controllers/admin/membership_controller.ex:122
+#: lib/run_web/controllers/club/account_controller.ex:68
+#: lib/run_web/controllers/club/member_controller.ex:107
+#: lib/run_web/controllers/club/member_controller.ex:116
+#: lib/run_web/controllers/club/membership_controller.ex:155
+#: lib/run_web/controllers/club/membership_controller.ex:166
+msgid "home"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/admin/post_controller.ex:110
+msgid "new"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/admin/blog_controller.ex:148
+msgid "new blog"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/club/membership_controller.ex:159
+msgid "new membership"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/form.html.heex:31
+#: lib/run_web/templates/admin/post/form.html.heex:33
+msgid "none"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/admin/blog/show.html.heex:18
+msgid "show on:"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/pages/sign_up_controller.ex:30
+msgid "sign-up"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/super/super_controller.ex:21
+msgid "super"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/templates/club/membership/new.html.heex:8
+msgid "to %{date}"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/admin/blog_controller.ex:156
+#: lib/run_web/controllers/admin/dashboard_controller.ex:26
+#: lib/run_web/controllers/admin/membership_controller.ex:112
+#: lib/run_web/controllers/admin/membership_controller.ex:125
+#: lib/run_web/controllers/admin/users_controller.ex:44
+#: lib/run_web/controllers/admin/users_controller.ex:54
+#: lib/run_web/controllers/admin/users_controller.ex:64
+#: lib/run_web/controllers/club/account_controller.ex:80
+#: lib/run_web/controllers/super/user_controller.ex:53
+#: lib/run_web/controllers/super/user_controller.ex:53
+#: lib/run_web/templates/super/dashboard/index.html.heex:7
+msgid "users"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/run_web/controllers/super/user_controller.ex:37
+#: lib/run_web/controllers/super/user_controller.ex:37
+msgid "User permissions updated."
 msgstr ""

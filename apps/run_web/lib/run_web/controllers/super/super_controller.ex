@@ -16,7 +16,7 @@ defmodule RunWeb.Super.DashboardController do
   defp breadcrumbs(conn) do
     %{
       show: true,
-      root: %{title: "home", path: Routes.landing_page_path(conn, :index)},
+      root: %{title: gettext("home"), path: Routes.landing_page_path(conn, :index)},
       links: [],
       current_page: gettext("super")
     }
