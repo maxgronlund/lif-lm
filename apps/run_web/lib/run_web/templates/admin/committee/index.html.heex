@@ -1,0 +1,34 @@
+<div class="md:container md:mx-auto mt-8 px-2">
+  <%= render RunWeb.SharedView, "tabs.html", %{tabs: @tabs} %>
+  <div class="relative pt-8 mb-8 page-header page-title"><%= gettext("Committees")%></div>
+  <%= link gettext("New committee"), to: Routes.admin_committee_path(@conn, :new), class: "mb-4 btn btn-blue" %>
+  
+
+  <div class="overflow-x-auto relative">
+    <table class="w-full text-sm text-left text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("Committee") %>
+          </th>
+          <th scope="col" class="py-3 px-6">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for committee <- @committees do %>
+          <tr class="bg-white border-b hover:bg-gray-50">
+            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+              <%= committee.name%>
+            </th>
+            <td class="py-4 px-6 text-right">
+              <%= link gettext("Show"), to: Routes.admin_committee_path(@conn, :show, committee), class: "btn mr-2" %>
+              <%= link gettext("Edit"), to: Routes.admin_committee_path(@conn, :edit, committee), class: "btn mr-2" %>
+              <%= link gettext("Delete"), to: Routes.admin_committee_path(@conn, :delete, committee), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

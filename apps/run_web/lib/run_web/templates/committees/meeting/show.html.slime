@@ -1,0 +1,78 @@
+.breadcrumb aria-label="breadcrumbs"
+  ul
+    li
+      = link gettext("About Run"), to: Routes.about_path(@conn, :index)
+    li
+      = link gettext("Listing Committees"), to: Routes.committee_committee_path(@conn, :index)
+    li
+      = link @meeting.committee.name, to: Routes.committee_committee_path(@conn, :show, @meeting.committee)
+    li.is-active
+      | &nbsp;
+      = @meeting.name
+
+.row
+  .column
+    h2 = @meeting.name
+    b = date_time(@meeting)
+    br
+    b = gettext("Address")
+    = if @meeting.location do
+      = text_to_html @meeting.location
+= if committee_member(@meeting.committee, @current_user) || @admin do
+  .row
+    .column
+      .float-right
+        = link gettext("Edit"),\
+            to: Routes.volunteer_committee_meeting_path(@conn, :edit, @committee, @meeting),\
+            class: "button"
+        | &nbsp;
+        = link gettext("Delete"),\
+          to: Routes.volunteer_committee_meeting_path(@conn, :delete, @committee, @meeting),\
+          data: [confirm: gettext("Are you sure?")],\
+          method: :delete,
+          class: "button button-red"
+
+.row
+  = if moderator = @meeting.moderator do
+    .column.profile
+      .tile
+        b = gettext("Moderator")
+        .profile-avatar
+          = img_tag Run.Uploader.Image.url({moderator.avatar, moderator}, :avatar)
+        .profile-content
+          h4 = moderator.username
+          a href="mailto:#{moderator.email}"
+            = moderator.email
+          br
+          = gettext("Mobile: %{mobile}", mobile: moderator.mobile)
+
+  = if minutes_taker = @meeting.minutes_taker do
+    .column.profile
+      .tile
+        b = gettext("Minutes taker")
+        .profile-avatar
+          = img_tag Run.Uploader.Image.url({minutes_taker.avatar, minutes_taker}, :avatar)
+        .profile-content
+          h4 = minutes_taker.username
+          a href="mailto:#{minutes_taker.email}"
+            = minutes_taker.email
+          br
+          = gettext("Mobile: %{mobile}", mobile: minutes_taker.mobile)
+= if @meeting.agenda do
+  .row
+    .column
+      h3#agenda = gettext("Meeting agenda")
+  .row
+    .column
+      .tile
+        = raw @meeting.agenda
+
+= if @meeting.summary do
+  .row
+    .column
+      h3#minutes = gettext("Meeting summary")
+  .row
+    .column
+      .tile
+        = raw @meeting.summary
+

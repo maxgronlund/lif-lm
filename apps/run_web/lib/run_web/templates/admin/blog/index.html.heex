@@ -1,6 +1,6 @@
 <div class="md:container md:mx-auto mt-8 px-2">
-  <div class="relative pt-8 mb-8 page-header page-title"><%= gettext("Blogs")%></div>
   <%= render RunWeb.SharedView, "tabs.html", %{tabs: @tabs} %>
+  <div class="relative pt-8 mb-8 page-header page-title"><%= gettext("Pages")%></div>
   <%= if @current_user.architect do %>
     <%= link gettext("New blog"), to: Routes.admin_blog_path(@conn, :new), class: "mb-4 btn btn-blue" %>
   <% end %>

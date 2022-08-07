@@ -121,14 +121,14 @@ defmodule RunWeb.Router do
     end
   end
 
-  # scope "/admin", RunWeb.Admin do
-  #   pipe_through [:browser, :require_admin, :require_super]
-  #   resources "/memberships", MembershipController
-  # end
-
   scope "/admin", RunWeb.Admin do
     pipe_through [:browser, :require_admin, :require_architect]
     resources "/blog", BlogController, as: :admin_blog, only: [:new, :create, :delete]
+
+    resources "/committees", CommitteeController, as: :admin_committee do
+      resources "/members", CommitteeMemberController, except: [:index, :show], as: :member
+      resources "/meetings", CommitteeMeetingController, except: [:index, :show], as: :meeting
+    end
   end
 
   scope "/club", RunWeb.Club do
@@ -153,9 +153,19 @@ defmodule RunWeb.Router do
 
   scope "/member", RunWeb.Club do
     pipe_through [:browser, :require_authenticated_user]
+
     get "/edit", MemberController, :edit, as: :edit_member
     get "/", MemberController, :show, as: :show_member
     put "/", MemberController, :update, as: :update_member
+  end
+
+  scope "/committee", RunWeb.Committee do
+    pipe_through [:browser, :require_authenticated_user]
+
+    resources "/", CommitteeController do
+      get "/meetings", MeetingController, as: :admin_committee_meeting
+      resources "/messages", MessageController, except: [:edit, :update, :delete]
+    end
   end
 
   scope "/payment", RunWeb.Payment do

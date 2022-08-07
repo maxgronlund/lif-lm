@@ -1,0 +1,7 @@
+
+<div class="md:container md:mx-auto mt-8 px-2">
+  <% render RunWeb.SharedView, "tabs.html", %{tabs: @tabs} %>
+  <div class="relative pt-8 mb-8 page-header page-title"><%= gettext("New committee member")%></div>
+  <%= render "form.html", Map.put(assigns, :action, Routes.admin_committee_member_path(@conn, :create, @committee)) %>
+
+</div>

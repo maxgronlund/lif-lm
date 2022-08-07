@@ -126,19 +126,19 @@ defmodule RunWeb.Club.MembershipController do
     render(conn, "edit.html", membership: membership, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "membership" => membership_params}) do
-    membership = Club.get_membership!(id)
+  # def update(conn, %{"id" => id, "membership" => membership_params}) do
+  #   membership = Club.get_membership!(id)
 
-    case Club.update_membership(membership, membership_params) do
-      {:ok, membership} ->
-        conn
-        |> put_flash(:info, "membership updated successfully.")
-        |> redirect(to: Routes.membership_path(conn, :show, membership))
+  #   case Club.update_membership(membership, membership_params) do
+  #     {:ok, membership} ->
+  #       conn
+  #       |> put_flash(:info, "membership updated successfully.")
+  #       |> redirect(to: Routes.membership_path(conn, :show, membership))
 
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", membership: membership, changeset: changeset)
-    end
-  end
+  #     {:error, %Ecto.Changeset{} = changeset} ->
+  #       render(conn, "edit.html", membership: membership, changeset: changeset)
+  #   end
+  # end
 
   def delete(conn, %{"id" => id}) do
     membership = Club.get_membership!(id)

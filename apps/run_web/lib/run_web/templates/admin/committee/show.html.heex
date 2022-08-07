@@ -1,0 +1,46 @@
+
+<div class="md:container md:mx-auto mt-8 px-2">
+  <%= render RunWeb.SharedView, "tabs.html", %{tabs: @tabs} %>
+  <div class="relative pt-8 mb-8 page-header page-title"><%= @committee.name %></div>
+  <%= @committee.description %>
+  <div class="mt-4">
+    <%= link gettext("Add committee member"), to: Routes.admin_committee_member_path(@conn, :new, @committee), class: "btn btn-blue" %>
+  </div>
+
+  <div class="overflow-x-auto relative">
+    <table class="w-full text-sm text-left text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("Role") %>
+          </th>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("Username") %>
+          </th>
+          <th scope="col" class="py-3 px-6">
+            <%= gettext("Email") %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for committee_member <- @committee.committee_members do %>
+          <tr class="bg-white border-b hover:bg-gray-50">
+            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+              <%= committee_member.role%>
+            </th>
+            <td class="by-4 px-6 ">
+              <%= committee_member.user.username %>
+            </td>
+            <td class="by-4 px-6 ">
+              <%= committee_member.user.email%>
+            </td>
+            <td class="py-4 px-6 text-right">
+              <%= link gettext("Edit"), to: Routes.admin_committee_member_path(@conn, :edit, @committee, committee_member), class: "btn mr-2"%>
+              <%= link gettext("Delete"), to: Routes.admin_committee_member_path(@conn, :delete, @committee, committee_member), class: "btn btn-red", method: :delete, data: [confirm: "Are you sure?"] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

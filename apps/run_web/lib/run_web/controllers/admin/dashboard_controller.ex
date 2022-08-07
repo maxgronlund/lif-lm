@@ -23,7 +23,12 @@ defmodule RunWeb.Admin.DashboardController do
     [
       %{label: gettext("admin"), link: Routes.admin_path(conn, :index), active: true},
       %{label: gettext("blogs"), link: Routes.admin_blogs_path(conn, :index), active: false},
-      %{label: gettext("users"), link: Routes.admin_users_path(conn, :index), active: false}
+      %{label: gettext("users"), link: Routes.admin_users_path(conn, :index), active: false},
+      %{
+        label: gettext("committees"),
+        link: Routes.admin_committee_path(conn, :index),
+        active: false
+      }
     ]
   end
 end

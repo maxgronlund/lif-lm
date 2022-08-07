@@ -1,0 +1,84 @@
+.breadcrumb aria-label="breadcrumbs"
+  ul
+    li
+      = link gettext("About Run"), to: Routes.about_path(@conn, :index)
+    li
+      = link gettext("Listing Committees"), to: Routes.committee_committee_path(@conn, :index)
+    li.is-active
+      | &nbsp;
+      = @committee.name
+
+.row
+  .column
+    h2 = @committee.name
+  = if committee_member(@committee, @current_user) || @admin do
+    .column
+      .float-right
+        = link gettext("Messages"), \
+          to: Routes.committee_committee_message_path(@conn, :index, @committee), \
+          class: "button"
+        | &nbsp;
+        = link gettext("Add committee member"),\
+          to: Routes.volunteer_committee_member_path(@conn, :new, @committee),\
+          class: "button"
+
+.tile
+  .auto-columns
+    = raw @committee.description
+= if @committee.enable_meetings do
+  .row
+    .column
+      h3 = gettext("Meetings")
+    = if committee_member(@committee, @current_user) || @admin do
+      .column
+        = link gettext("New Meeting"),\
+          to: Routes.volunteer_committee_meeting_path(@conn, :new, @committee),\
+          class: "button float-right"
+
+  = unless @committee.meetings == [] do
+    .tiles.button-tiles
+      = for meeting <- @committee.meetings do
+        .card.is-shady
+          .card-header-title.is-centered
+            = date_time(meeting)
+          .card-content
+            b = meeting.name
+            hr
+            = if meeting.location do
+              = gettext("Address")
+              br/
+              = text_to_html meeting.location
+          .card-footer.is-button
+            = link gettext("Show"),\
+              to: Routes.committee_committee_meeting_path(@conn, :show, @committee, meeting),\
+              class: "card-footer-item is-button"
+  br/
+.row.mt-1
+  .column
+    h3 = gettext("Committee members")
+.profiles.mt-2
+  = for member <- @committee.members do
+    .profile
+      .profile-avatar
+        = img_tag Run.Uploader.Image.url({member.user.avatar, member.user}, :avatar)
+      .profile-content
+        h4 = member.user.username
+        b = member.role
+        = if committee_member(@committee, @current_user) do
+          br
+          a href="mailto:#{member.user.email}"
+            = member.user.email
+          br
+          = member.user.mobile
+      = if @admin do
+        .row
+          .column
+            .float-right
+              .pr-6
+                = link gettext("Remove"),\
+                  to: Routes.volunteer_committee_member_path(@conn, :delete, @committee, member),\
+                  method: :delete, data: [confirm: gettext("Are you sure?")], class: "button button-red button-small"
+                | &nbsp;
+                = link gettext("Edit"),\
+                  to: Routes.volunteer_committee_member_path(@conn, :edit, @committee, member),\
+                  class: "button button-small"
